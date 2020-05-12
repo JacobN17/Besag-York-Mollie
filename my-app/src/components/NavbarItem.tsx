@@ -6,8 +6,8 @@ interface NavbarItemProps {
 
 export const NavbarItem: React.FC<NavbarItemProps> = ({ link }) => {
     return (
-        <ul>
+        // <ul>
             <li><a href={link.path}>{link.name}</a></li>
-        </ul>
+        // </ul>
     )
 };
