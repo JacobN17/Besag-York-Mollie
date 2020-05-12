@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavbarItem } from './components/NavbarItem';
+import { Navbar } from './components/Navbar';
 import './App.css';
 
-const navigation: Array<NavigationLink> = [
+const navigation: Array<NavLink> = [
   {name: 'BYM', path: './home'}, 
   {name: 'Upload Data', path:'./upload'},
   {name: 'Share', path: './share'}
@@ -10,13 +10,14 @@ const navigation: Array<NavigationLink> = [
 
 const App: React.FC = () => {
   return (
-    <div>
-      <ul>
-        <NavbarItem link={navigation[0]} />
-        <NavbarItem link={navigation[1]} />
-        <NavbarItem link={navigation[2]} />
-      </ul>
+    <div className="container header-container">
+      <div className="app-header">
+        <Navbar link={navigation[0]} />
+        <Navbar link={navigation[1]} />
+        <Navbar link={navigation[2]} />
+      </div>
     </div>
+    
   )
 }
 
