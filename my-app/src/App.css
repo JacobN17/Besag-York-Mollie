@@ -12,27 +12,35 @@ body {
   height: 130px;
   background-color: #384250;
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .app-header {
   text-decoration: none;
   color: #fff;  
-  width: 1000px;
   box-sizing: border-box;
-}
-
-.app-header {
+  width: 1000px;
   display: flex;
   height: 100px;
   margin: 0 auto;
   justify-content: center;
-  align-content: left;
-  padding-top: 40px;
+  align-items: center;
 }
 
-ul {
+/* .app-header { */
+  /* display: flex;
+  height: 100px;
+  margin: 0 auto;
+  justify-content: center;
+  align-content: left;
+  padding-top: 40px; */
+/* } */
+
+/* ul {
   float: left;
-}
+} */
 
 .Navbar {
   flex: 1 1;

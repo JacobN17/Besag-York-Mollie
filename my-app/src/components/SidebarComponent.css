@@ -1,0 +1,37 @@
+.form-wrapper {
+    padding: 50px;
+    justify-content: center;
+    background-color: #2c343f;
+}
+
+.input-container {
+    position: absolute;
+    bottom: 60%;
+}
+
+.btn-file {
+    font-weight: 200;
+    font-size: 15px;
+    text-align: center;
+    margin: 10px;
+    background-color: #8e99aa;
+}
+
+.submit {
+    font-weight: 200;
+    font-size: 15px;
+    text-align: center;
+    margin: 10px;
+    background-color: #8e99aa;
+}
+
+.input-container input.submit {
+    cursor: pointer;
+}
+
+.input-container input.btn-file {
+    cursor: pointer;
+}
+
+
+
