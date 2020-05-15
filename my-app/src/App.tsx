@@ -10,16 +10,21 @@ const navigation: Array<NavLink> = [
   {name: 'Share', path: './share'}
 ];
 
+<<<<<<< HEAD
 // api endpoint
+=======
+// api endpointn
+>>>>>>> daniel
 const path: string = '/upload';
 
 const App: React.FC = () => {
   return (
     <div className="container header-container">
-      <div className="app-header">
+      <ul className="app-header">
         <Navbar link={navigation[0]} />
         <Navbar link={navigation[1]} />
         <Navbar link={navigation[2]} />
+<<<<<<< HEAD
       </div>
       
       
@@ -27,8 +32,12 @@ const App: React.FC = () => {
      
 
 
+=======
+      </ul>
+      
+        <SidebarComponent action={ path }/>
+>>>>>>> daniel
     </div>
   )
 }
-
 export default App;
