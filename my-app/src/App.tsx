@@ -11,6 +11,7 @@ const navigation: Array<NavLink> = [
 ];
 
 const path: string = '/upload';
+const share: string = '/share';
 
 const App: React.FC = () => {
   return (
