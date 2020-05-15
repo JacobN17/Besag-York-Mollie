@@ -10,25 +10,19 @@ const navigation: Array<NavLink> = [
   {name: 'Share', path: './share'}
 ];
 
-// api endpoint
 const path: string = '/upload';
 
 const App: React.FC = () => {
   return (
     <div className="container header-container">
-      <div className="app-header">
+      <ul className="app-header">
         <Navbar link={navigation[0]} />
         <Navbar link={navigation[1]} />
         <Navbar link={navigation[2]} />
-      </div>
-      
+      </ul>
       
         <SidebarComponent action={ path }/>
-     
-
-
     </div>
   )
 }
-
 export default App;
