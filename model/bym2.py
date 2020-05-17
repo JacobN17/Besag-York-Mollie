@@ -121,15 +121,15 @@ def bym_model():
     # intialized matrix and data
     matrix = np.array([[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]])
     bym_data = {
-        'N': 5,
+        'N': 5,                                 # The first 4 variables construct the environment of the model
         'edges': 10,
         'node1': [1, 1, 2, 2, 2, 3, 4, 5, 2, 3],
         'node2': [2, 1, 1, 1, 2, 3, 4, 5, 5, 2],
-        'y': [1, 2, 3, 4, 5],
-        'E': [1, 1, 2, 3, 4],
-        'K': 4,
-        'x': matrix,
-        'scaling_factor': 2.0
+        'y': [1, 2, 3, 4, 5],                   # counts outcomes of the data input
+        'E': [1, 1, 2, 3, 4],                   # amount of exposure
+        'K': 4,                                 # number of covariates (characteristics of the participants)
+        'x': matrix,                            # design matrix
+        'scaling_factor': 2.0                   # scaling for the variance of spatial
     }
     # Utitlize pystan package to allow the built-in StanModel class to fully generate a model and arviz to plot
     sm = pystan.StanModel(model_code=bym_code)
