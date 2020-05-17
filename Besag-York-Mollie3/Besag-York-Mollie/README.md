@@ -1,2 +1,0 @@
-# Besag-York-Mollie
- 
