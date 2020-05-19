@@ -1,29 +1,37 @@
-import React from 'react';
-import { Navbar } from './components/Navbar';
-import { SidebarComponent } from './components/SidebarComponent';  
-import './App.css';
+// import React from 'react';
+// import logo from './logo.svg';
+// import './App.css';
+//
+// function App() {
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+//         <img src={logo} className="App-logo" alt="logo" />
+//         <p>
+//           Edit <code>src/App.tsx</code> and save to reload.
+//         </p>
+//         <a
+//           className="App-link"
+//           href="https://reactjs.org"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           Learn React
+//         </a>
+//       </header>
+//     </div>
+//   );
+// }
+//
+// export default App;
 
-// navbar list
-const navigation: Array<NavLink> = [
-  {name: 'BYM', path: './home'}, 
-  {name: 'Upload Data', path:'./upload'},
-  {name: 'Share', path: './share'}
-];
 
-// api endpointn
-const path: string = '/upload';
+import * as React from 'react';
+import { Header } from './components';
 
-const App: React.FC = () => {
+export const App: React.FC <{}> = (props) => {
   return (
-    <div className="container header-container">
-      <ul className="app-header">
-        <Navbar link={navigation[0]} />
-        <Navbar link={navigation[1]} />
-        <Navbar link={navigation[2]} />
-      </ul>
-      
-        <SidebarComponent action={ path }/>
-    </div>
+      <Header />
   )
-}
-export default App;
+};
+

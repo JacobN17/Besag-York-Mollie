@@ -1,0 +1,40 @@
+body {
+    background: #2a313b;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.navbar-header {
+    justify-content: space-between;
+    display: flex;
+}
+
+.navbar-container {
+    height: 130px;
+    background-color: #384250;
+    color: #fff;
+    display: flex;
+    position: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar {
+    text-decoration: none;
+    color: #fff;
+    box-sizing: border-box;
+    width: 1000px;
+    display: flex;
+    height: 100px;
+    align-items: center;;
+}
+
+.nav-link {
+    flex: 1 1;
+    font-weight: 200;
+    font-size: 16px;
+    text-align: center;
+}
+
+a {
+    color: #fff;
+}
