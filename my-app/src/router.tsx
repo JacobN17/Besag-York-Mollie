@@ -1,10 +1,7 @@
-// @ts-ignore
 import * as React from 'react';
 // @ts-ignore
 import { Route, HashRouter, Switch } from 'react-router-dom';
-// @ts-ignore
 import { App } from './App';
-// @ts-ignore
 import {Bym, Home, UploadPage} from './components';
 import './css/router.css'
 
