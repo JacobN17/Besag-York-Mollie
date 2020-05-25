@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="CheckStyle-IDEA">
     <option name="configuration">
       <map>
@@ -18,5 +19,9 @@
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_14" project-jdk-name="14" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
+=======
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="JSX" />
+>>>>>>> 2f279a3c8f98801d861e32f3f1fffe223498982c
   </component>
 </project>
