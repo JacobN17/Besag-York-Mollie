@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar } from './components/Navbar';
 import { SidebarComponent } from './components/SidebarComponent';  
+import { StanComponent } from './components/StanComponent';
 import './App.css';
 
 // navbar list
@@ -11,18 +12,24 @@ const navigation: Array<NavLink> = [
 ];
 
 const path: string = '/upload';
-const share: string = '/share';
+const share: string = '/share'; // TODO: implement this 
+//<SidebarComponent action={ path }/>
 
 const App: React.FC = () => {
   return (
     <div className="container header-container">
       <ul className="app-header">
-        <Navbar link={navigation[0]} />
-        <Navbar link={navigation[1]} />
-        <Navbar link={navigation[2]} />
+        <Navbar link={ navigation[0] } />
+        <Navbar link={ navigation[1] } />
+        <Navbar link={ navigation[2] } />
       </ul>
       
-        <SidebarComponent action={ path }/>
+       
+        
+        <StanComponent action={ path }/>
+        
+        
+
     </div>
   )
 }
