@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 # modules
-frontend/node_modules
+/node_modules
 
 
 # C extensions
