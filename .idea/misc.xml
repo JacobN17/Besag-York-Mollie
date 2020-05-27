@@ -24,4 +24,5 @@
     <option name="languageLevel" value="JSX" />
 >>>>>>> 2f279a3c8f98801d861e32f3f1fffe223498982c
   </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="13.0.2" project-jdk-type="JavaSDK" />
 </project>
