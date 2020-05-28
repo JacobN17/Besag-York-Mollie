@@ -1,14 +1,30 @@
+// import * as React from 'react';
+// import '../css/home.css';
+//
+//
+//
+//
+//
+// const Home: React.FC = () => {
+//     return (
+//         <div className="navbar-container">
+//             <h2> Hello Home Page</h2>
+//         </div>
+//     )
+// }
+// export default Home;
+
+
 import * as React from 'react';
-import '../css/home.css';
+import '../css/upload.css';
 import axios  from 'axios'
-
-
 
 
 
 interface FormProps {
     action: string
 }
+
 
 
 function UploadFile() {
@@ -26,7 +42,6 @@ function UploadFile() {
             });
     }
 }
-
 
 
 export const Home: React.FC<FormProps> = ({action}) => {

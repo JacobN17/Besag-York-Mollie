@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import '../css/header.css';
 
 
-export const Header: React.FC <{}> = () => {
+const Header: React.FC <{}> = () => {
     return (
         <div className="navbar-header navbar-container">
             {/*<nav className="navbar-wrapper">*/}
@@ -12,6 +12,10 @@ export const Header: React.FC <{}> = () => {
                             <Link className="nav-link" to="/home">
                                 Home
                             </Link>
+
+                            {/*<Link className="nav-link" to="/upload">*/}
+                            {/*    Upload*/}
+                            {/*</Link>*/}
 
                             <Link className="nav-link" to="/bym">
                                 BYM
@@ -24,4 +28,5 @@ export const Header: React.FC <{}> = () => {
             {/*</nav>*/}
         </div>
     )
-};
+}
+export default Header;
