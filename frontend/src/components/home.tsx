@@ -1,15 +1,11 @@
 import * as React from 'react';
 import '../css/home.css';
 import axios  from 'axios'
-
-
-
-
+import { eventNames } from 'cluster';
 
 interface FormProps {
     action: string
 }
-
 
 function UploadFile() {
     const file = document.getElementById("fileupload") as HTMLInputElement;

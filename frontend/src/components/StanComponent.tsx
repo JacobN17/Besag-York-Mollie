@@ -70,7 +70,6 @@ export const StanComponent: React.FC<StanProps> = ({action}) => {
                 </form>
             </div>
         )}
-
         </Formik>
     )
 }

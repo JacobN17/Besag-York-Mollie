@@ -13,6 +13,10 @@ export const Header: React.FC <{}> = () => {
                                 Home
                             </Link>
 
+                            <Link className="nav-link" to="/upload">
+                                Upload
+                            </Link>
+
                             <Link className="nav-link" to="/bym">
                                 BYM
                             </Link>
