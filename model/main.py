@@ -1,6 +1,5 @@
-from .bym2 import bym_model, icar_model
+from .bym2 import generate_model
 
 
 if __name__ == '__main__':
-    bym_model()
-    # icar_model()
+    generate_model()
