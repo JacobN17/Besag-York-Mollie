@@ -33,8 +33,7 @@ export const Bym: React.FC<FormProps> = ({action}) => {
         <Formik initialValues={{ data: '', dataValues: '', mean: '', sd: '' }}
                 onSubmit = {data => {
                     console.log(data);
-                }}
-        >
+                }} >
             {({
                   values,
                   handleChange,
@@ -43,11 +42,11 @@ export const Bym: React.FC<FormProps> = ({action}) => {
                   isSubmitting,
               }) => (
                 <div className="model-container">
-                    <form onSubmit={handleSubmit} className="form-wrapper" action="/upload"
+                    <form onSubmit={handleSubmit} className="form" action="/upload"
                           encType="multipart/form-data" method="POST">
 
                         <label htmlFor="data">Data</label>
-                        <input
+                        <input className="box"
                             type="number"
                             name="data"
                             onChange={handleChange}

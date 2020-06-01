@@ -1,3 +1,10 @@
-h2 {
+.share-nav {
     text-align: center;
+    color: white;
+    z-index:100;
+    position:absolute;
+    font-size:24px;
+    font-weight:bold;
+    left:150px;
+    top:350px;
 }

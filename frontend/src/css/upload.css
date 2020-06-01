@@ -6,68 +6,72 @@ body {
 .input-container {
     height: 200px;
     display: flex;
-    /*position: absolute;*/
+    align-items: center;
+    text-align: center;
 }
 
 .form-wrapper {
-    display: table-column;
-    margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    padding: 60px;
-    justify-content: center;
     background-color: #2c343f;
 
 }
 
 
-.file-chooser-button {
-    font-size: 15px;
-    background-color:  #384250;
-    padding: 0.6em 2em;
-    position: -ms-device-fixed;
-}
-
-
-.file-chooser-button {
-    background-color:#384250;
-    border-radius:20px;
-    display:inline-block;
-    color:#fff;
-    font-size:15px;
-    padding:16px 31px;
-    text-decoration:none;
-}
-
-
-.file-input {
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
-}
-
 .upload-button {
-    font-size: 15px;
-    background-color:  #384250;
-    padding: 0.6em 2em;
+    display: inline-block;
     cursor: pointer;
-    position: relative;
-}
-
-
-.upload-button {
     background-color:#384250;
-    border-radius:20px;
-    display:inline-block;
+    border-radius:18px;
     color: #fff;
     font-size:15px;
     padding:16px 31px;
     text-decoration:none;
+}
+
+button[type=submit]:hover {
+    background-color: rgba(165, 165, 165, 0.37);
+}
+
+.drop-area input:focus {
+    outline: none;
+}
+
+#drop-area {
+    border-style: dashed;
+    padding: 120px;
+}
+
+.file-area {
+    text-align: left;
+    border-style: dashed;
+    padding: 120px;
+
+    /* Hides choose file button */
+    width: 0;
+    height: 0;
+    z-index: -1;
+    position: absolute;
+    overflow: hidden;
+    opacity: 0;
+}
+
+
+input:focus {
+    outline: none;
+}
+
+
+.drag-icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    color: #fff;
+    text-align: center;
 }
