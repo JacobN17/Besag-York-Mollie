@@ -10,6 +10,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "axios": "^0.19.2",
     "filepond": "^4.13.7",
     "formik": "^2.1.4",
     "jquery": "^3.5.1",
@@ -18,6 +19,7 @@
     "react-dom": "^16.13.1",
     "react-dropzone": "^11.0.1",
     "react-file-reader": "^1.1.4",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "typescript": "~3.7.2"
   },
