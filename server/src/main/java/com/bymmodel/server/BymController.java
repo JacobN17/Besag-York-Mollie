@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 public class BymController {
     @RequestMapping(method = RequestMethod.POST, consumes = "multipart/form-data")
-    public void GetFile(@RequestParam("file") MultipartFile file ) {
+    public void GetFile(@RequestParam("file") MultipartFile file) {
         System.out.println(file.getSize());
     }
 }

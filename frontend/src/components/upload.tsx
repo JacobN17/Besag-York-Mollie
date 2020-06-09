@@ -1,9 +1,5 @@
 import * as React from 'react';
-import axios from 'axios';
 import '../css/upload.css';
-// import React, { useCallback } from 'react';
-import { useDropzone } from 'react-dropzone'
-
 
 // TODO: fix opacitiy after file dropped
 
@@ -55,12 +51,4 @@ export const Upload: React.FC<UploadProps> = ({ action }) => {
         </div>
     )
 }
-
-
-
-
-
-
-
-
 
