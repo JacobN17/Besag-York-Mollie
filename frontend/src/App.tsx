@@ -1,9 +1,10 @@
 import * as React from 'react';
-import {Header} from './components';
+import {Navigation} from "./components";
+import './index.css'
 
 export const App: React.FC <{}> = (props) => {
   return (
-      <Header />
+        <Navigation />
   )
 };
 

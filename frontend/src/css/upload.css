@@ -1,0 +1,79 @@
+body {
+    background: #2a313b;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.input-container {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.form-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #2c343f;
+
+}
+
+
+.upload-button {
+    display: inline-block;
+    cursor: pointer;
+    background-color:#384250;
+    border-radius:18px;
+    color: #fff;
+    font-size:15px;
+    padding:16px 31px;
+    text-decoration:none;
+}
+
+button[type=submit]:hover {
+    background-color: rgba(165, 165, 165, 0.37);
+}
+
+.drop-area input:focus {
+    outline: none;
+}
+
+#drop-area {
+    border-style: dashed;
+    padding: 120px;
+}
+
+.file-area {
+    text-align: left;
+    border-style: dashed;
+    padding: 120px;
+
+    /* Hides choose file button */
+    width: 0;
+    height: 0;
+    z-index: -1;
+    position: absolute;
+    overflow: hidden;
+    opacity: 0;
+}
+
+
+input:focus {
+    outline: none;
+}
+
+
+.drag-icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    color: #fff;
+    text-align: center;
+}
+
+
