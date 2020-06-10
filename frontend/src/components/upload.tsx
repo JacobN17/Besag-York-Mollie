@@ -34,7 +34,7 @@ let onFileDrop = (e: React.DragEvent<HTMLDivElement>) => {
 export const Upload: React.FC<UploadProps> = ({ action }) => {
     return (
         <div className="input-container">
-            <form className="form-wrapper">
+            <form method ="post" className="form-wrapper">
                 <div id="drop-area"
                      onDragOver={onFileDragOver}
                      onDragEnter={onFileDragEnter}
