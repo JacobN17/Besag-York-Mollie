@@ -9,6 +9,8 @@ import arviz as ar
 import numpy as np
 import pandas as pd
 from pathlib import Path
+import random as r
+from random import seed, randint
 
 
 def generate_model():
@@ -17,18 +19,22 @@ def generate_model():
     df = pd.read_csv(path)
 
     # defining specific columns for spatial points, size, and edges
-    N = df.size
-    latitude = df.iloc[:, 0].values
-    longitude = df.iloc[:, 1].values
-    edges = 25288
-    scaling_factor = 2.0
-    y1 = [1, 2, 3, 4, 5]
-    design_matrix = np.array([[latitude], [longitude]])
+    N = df.size  # size of actual csv file
+    latitude = df.iloc[:, 0].values  # latitude points of specified geolocation points from csv file
+    longitude = df.iloc[:, 1].values  # longitude points of specified geolocation points from csv file
+    edges = 10  # arbitrary number of edges
+    K = len(latitude)  # total number of data entries
+    scaling_factor = 2.0  # factor of two for variance consistency
+    y1 = []  # number of variables involved (coordinates) ranging from 1-2 in random sequences
+    for i in range(N):
+        rand = r.randint(1, 2)
+        y1.append(rand)
+    design_matrix = np.array([latitude, longitude])
 
     # stan code block for the data and parameters
     stan_code = """
     functions {
-        real icar_normal_lpdf(vector phi, int N, vector node1, vector node2){
+        real icar_normal_lpdf(vector phi, int N, int[] node1, int[] node2){
             return -0.5 * dot_self(phi[node1] - phi[node2]) + normal_lpdf(sum(phi) | 0, 0.001 * N);
         }
     }
@@ -36,12 +42,12 @@ def generate_model():
     data {
         int<lower=0> N;
         int<lower=0> edges;
-        vector[edges] node1;
-        vector[edges] node2;
+        int<lower=1, upper=N> node1[edges];
+        int<lower=1, upper=N> node2[edges];
         real<lower=0> scaling_factor;
         int<lower=1> K;
         int<lower=0> y[N];
-        matrix[N, K] x;
+        matrix[node1[edges], node2[edges]] x; 
     }
         
     parameters {
@@ -73,13 +79,13 @@ def generate_model():
 
     bym_data = {
         'N': N,  # size of the graph = number of values in csv
-        'edges': edges,  # 2 edges per vertex
-        'node1': latitude,  # latitude points
-        'node2': longitude,  # longitude points
+        'edges': edges,  # edge sets representing relations
+        'node1': [1, 1, 2, 2, 2, 3, 4, 5, 2, 3],  # set of indices corresponding to 1st component(i)of ICAR
+        'node2': [2, 1, 1, 1, 2, 3, 4, 5, 5, 2],  # set of indices corresponding to 2nd component(j) of ICAR
         'scaling_factor': scaling_factor,  # variance between spatial points
-        'K': 2,
-        'y': y1,
-        'x': design_matrix
+        'K': K,  # number of covariates
+        'y': y1,  # number of outcomes
+        'x': design_matrix  # matrix for design of the structure of graph
     }
 
     # Utilize pystan package to allow the built-in StanModel class to fully generate a model and arviz to plot
