@@ -27,14 +27,14 @@ public class DocumentServiceImpl implements DocumentService {
         return metadata;
     }
 
-    @Override
-    public byte[] getDocumentFile(Long id) {
-        return documentDao.findOne(id).getFile();
-    }
+//    @Override
+//    public byte[] getDocumentFile(Long id) {
+//        return documentDao.findOne(id).getFile();
+//    }
 
-    @Override
-    public List findAll() {
-        return (List) documentDao.findAll();
-    }
+//    @Override
+//    public List findAll() {
+//        return (List) documentDao.findAll();
+//    }
 
 }
