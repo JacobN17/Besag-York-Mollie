@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec8ad7a6-a1b3-40ca-95a5-58a18f08b2d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/bymmodel/DocumentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/bymmodel/FileUploadController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/upload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/upload.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +75,7 @@
       <workItem from="1591754326188" duration="1325000" />
       <workItem from="1591757611302" duration="10000" />
       <workItem from="1591796864119" duration="93000" />
-      <workItem from="1591839551638" duration="1446000" />
+      <workItem from="1591839551638" duration="3815000" />
     </task>
     <servers />
   </component>
