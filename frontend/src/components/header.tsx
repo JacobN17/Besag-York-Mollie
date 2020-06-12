@@ -24,6 +24,9 @@ export const Header: React.FC <{}> = () => {
                             <Link className="nav-link" to="/share">
                                 Share
                             </Link>
+                            <Link className="nav-link" to="/convert">
+                                json to csv
+                            </Link>
                     </ul>
             {/*</nav>*/}
         </div>

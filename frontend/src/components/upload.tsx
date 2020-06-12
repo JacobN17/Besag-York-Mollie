@@ -28,10 +28,9 @@ let onFileDrop = (e: React.DragEvent<HTMLDivElement>) => {
     console.log(e.dataTransfer.items);
 
     // TODO: handle db requests in this method
+    
 
 }   
-
-
 
 
 export const Upload: React.FC<UploadProps> = ({ action }) => {
