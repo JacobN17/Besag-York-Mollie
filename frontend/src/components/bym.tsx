@@ -9,21 +9,36 @@ interface FormProps {
 }
 
 
-
+//
+// function SubmitForm() {
+//     const file = document.getElementById("upload") as HTMLInputElement;
+//     if (file.files != null) {
+//         const formData = new FormData();
+//         formData.append("upload", file.files[0]);
+//         axios.post("http://localhost:8080/", formData, {
+//             headers: {'Content-Type': 'multipart/form-data'}
+//         })
+//             .then(response => {
+//                 if (response.data != null) {
+//                     alert("SUCCESS")
+//                 }
+//             });
+//     }
+// }
 function SubmitForm() {
-    const file = document.getElementById("upload") as HTMLInputElement;
-    if (file.files != null) {
-        const formData = new FormData();
-        formData.append("upload", file.files[0]);
-        axios.post("http://localhost:8080/", formData, {
-            headers: {'Content-Type': 'multipart/form-data'}
-        })
-            .then(response => {
-                if (response.data != null) {
-                    alert("SUCCESS")
-                }
-            });
-    }
+    const formData = new FormData();
+    formData.set("data", (document.getElementById("data") as HTMLInputElement).value);
+    formData.set("dataValues", (document.getElementById("dataValues") as HTMLInputElement).value);
+    formData.set("mean", (document.getElementById("mean") as HTMLInputElement).value);
+    formData.set("sd", (document.getElementById("sd") as HTMLInputElement).value);
+    axios.post("http://localhost:8080/", formData, {
+        headers: {'Content-Type': 'multipart/form-data'}
+    })
+        .then(response => {
+            if (response.data != null) {
+                alert("SUCCESS")
+            }
+        });
 }
 
 
