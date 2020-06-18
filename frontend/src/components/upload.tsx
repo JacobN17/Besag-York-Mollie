@@ -1,54 +1,74 @@
 import * as React from 'react';
+import { useState, } from 'react';
+import {Dragndrop} from './dragndrop';
 import '../css/upload.css';
+import Papa from 'papaparse';
 
-// TODO: fix opacitiy after file dropped
 
-interface UploadProps {
-    action: string
-}
 
-let onFileDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-    let event = e;
-    event.preventDefault()
-    event.stopPropagation();
-    let dropArea = document.getElementById("drop-area") as HTMLElement;
-    dropArea.style.opacity = "0.5";
-}
 
-let onFileDragEnter = (e: React.DragEvent<HTMLDivElement>) => {
-    let event = e;
-    event.stopPropagation();
-}
+export const Upload = () => {
+    const [files, setFiles] = useState<File[]>([]);
 
-let onFileDrop = (e: React.DragEvent<HTMLDivElement>) => {
-    let event = e;
-    event.stopPropagation();
+    const displayFile = files.map(file => (
+        <li key={file.type}>
+            {file.name} - {file.size} bytes
+        </li>
+    ));
 
-    console.log("file dropped");
-    console.log(e.dataTransfer.items);
+    const onDrop = (acceptedFiles: File[]) => {
+        acceptedFiles.map(file => (
+            file
+        ))
+        console.log('File Dropped', setFiles(acceptedFiles))
+    }
 
-    // TODO: handle db requests in this method
 
-}
+    const uploadFile = () => {
+        const uploadURL = 'http://localhost:8080/upload';
 
-export const Upload: React.FC<UploadProps> = ({ action }) => {
+        files.forEach(file => {
+            const formData = new FormData();
+            console.log(setFiles(files))
+            formData.append('file', file);
+
+            fetch(uploadURL, {
+                method: 'post',
+                body: formData
+            }).then(response => {
+                if (response.ok) {
+                    console.log(response.headers)
+                    alert("File uploaded successfully.")
+                }
+            }).catch(error => console.log(error, 'Error Could not Upload File'))
+
+            //==== Parse CSV File ====
+            Papa.parse(file, {
+                delimiter: "",
+                complete: updateData,
+                header: true
+            })
+        })
+    }
+
+    const updateData = (result: { data: any; }) => {
+        const data = result.data;
+        console.log(data);
+    }
+
+    //TODO Post call to store data into db
+
+    //TODO GET call data from db table
+
     return (
-        <div className="input-container">
-            <form className="form-wrapper">
-                <div id="drop-area"
-                     onDragOver={onFileDragOver}
-                     onDragEnter={onFileDragEnter}
-                     onDrop={onFileDrop} >
-                    <img className="drag-icon" src="https://img.icons8.com/cotton/64/000000/upload-to-cloud--v1.png"
-                    alt="cloud-img"/>
-                    <p>Choose a file or drag here</p>
-                    <input type="file" className="file-area"/>
-                    <div className="btn">
-                        <button className="upload-button" type="submit">Submit</button>
-                    </div>
-                </div>
-            </form>
+        <div>
+            <Dragndrop files={files} onDrop={onDrop}/>
+            <img className="drag-icon" src="https://img.icons8.com/cotton/64/000000/upload-to-cloud--v1.png"
+                 alt="cloud-img"/>
+            <button className="upload-btn" value="Submit" onClick={() => uploadFile()}>Upload</button>
+            <aside className="display-uploaded-file">
+                <ul>{displayFile}</ul>
+            </aside>
         </div>
-    )
+    );
 }
-
