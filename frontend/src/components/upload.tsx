@@ -21,9 +21,6 @@ let onFileDragEnter = (e: React.DragEvent<HTMLDivElement>) => {
     event.stopPropagation();
 }
 
-
-
-
 let onFileDrop = (e: React.DragEvent<HTMLDivElement>) => {
     let event = e;
     event.stopPropagation();

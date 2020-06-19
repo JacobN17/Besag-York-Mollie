@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec8ad7a6-a1b3-40ca-95a5-58a18f08b2d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_opencsv_opencsv_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_text_1_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/bymmodel/UserModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_20.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/bymmodel/BymModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/upload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/upload.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/bymmodel/BymmodelApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/bymmodel/BymModelApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/bymmodel/bymController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/bymmodel/BymController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/bymmodel/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/bymmodel/UserModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +32,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -90,7 +84,9 @@
       <workItem from="1591796864119" duration="93000" />
       <workItem from="1591839551638" duration="6615000" />
       <workItem from="1592006606641" duration="4920000" />
-      <workItem from="1592269793470" duration="5002000" />
+      <workItem from="1592269793470" duration="6118000" />
+      <workItem from="1592445710855" duration="1484000" />
+      <workItem from="1592447547848" duration="1586000" />
     </task>
     <servers />
   </component>
@@ -98,10 +94,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="108" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592442757949">
+    <state x="108" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592447149502">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="108" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1592442757949" />
+    <state x="108" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1592447149502" />
     <state x="610" y="375" width="460" height="256" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1592442240178">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
