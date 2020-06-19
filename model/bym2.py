@@ -1,4 +1,5 @@
 """
+Author: Jacob John Nona
 Program that generates the Besag-York-Mollie 2 model, a lognormal Poisson distribution
 developed for disease-risk mapping which includes both an
 Integrated Conditional Auto-Regression Model (ICAR) component for spatial smoothing
@@ -10,16 +11,15 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 import random as r
-from random import seed, randint
 
 
 def generate_model():
-    # defining path for dataset
+    # path definition for dataset
     path = Path("/Users/jacob/Esri/Besag-York-Mollie/datasets/starbucks.csv")
     df = pd.read_csv(path)
 
     # defining specific columns for spatial points, size, and edges
-    N = df.size  # size of actual csv file
+    N = 2  # size of actual csv file
     latitude = df.iloc[:, 0].values  # latitude points of specified geolocation points from csv file
     longitude = df.iloc[:, 1].values  # longitude points of specified geolocation points from csv file
     edges = 10  # arbitrary number of edges
@@ -29,7 +29,7 @@ def generate_model():
     for i in range(N):
         rand = r.randint(1, 2)
         y1.append(rand)
-    design_matrix = np.array([latitude, longitude])
+    design_matrix = np.column_stack((latitude, longitude))  # TODO: Fix dimensions for col of m1 and rows of m2
 
     # stan code block for the data and parameters
     stan_code = """
@@ -47,7 +47,7 @@ def generate_model():
         real<lower=0> scaling_factor;
         int<lower=1> K;
         int<lower=0> y[N];
-        matrix[node1[edges], node2[edges]] x; 
+        matrix[K, N] x; 
     }
         
     parameters {
@@ -75,13 +75,13 @@ def generate_model():
     }
     """
 
-    # data initialization
+    # model data initialization
 
     bym_data = {
         'N': N,  # size of the graph = number of values in csv
         'edges': edges,  # edge sets representing relations
-        'node1': [1, 1, 2, 2, 2, 3, 4, 5, 2, 3],  # set of indices corresponding to 1st component(i)of ICAR
-        'node2': [2, 1, 1, 1, 2, 3, 4, 5, 5, 2],  # set of indices corresponding to 2nd component(j) of ICAR
+        'node1': [1, 1, 2, 3, 2, 3, 1, 3, 2, 1],  # set of indices corresponding to 1st component(i) of ICAR
+        'node2': [1, 1, 2, 3, 2, 3, 1, 3, 2, 1],  # set of indices corresponding to 2nd component(j) of ICAR
         'scaling_factor': scaling_factor,  # variance between spatial points
         'K': K,  # number of covariates
         'y': y1,  # number of outcomes
