@@ -80,8 +80,8 @@ def generate_model():
     bym_data = {
         'N': N,  # size of the graph = number of values in csv
         'edges': edges,  # edge sets representing relations
-        'node1': [1, 1, 2, 3, 2, 3, 1, 3, 2, 1],  # set of indices corresponding to 1st component(i) of ICAR
-        'node2': [1, 1, 2, 3, 2, 3, 1, 3, 2, 1],  # set of indices corresponding to 2nd component(j) of ICAR
+        'node1': [1, 1, 2, 2, 2, 2, 1, 1, 2, 1],  # set of indices corresponding to 1st component(i) of ICAR
+        'node2': [1, 1, 2, 2, 2, 2, 1, 2, 2, 1],  # set of indices corresponding to 2nd component(j) of ICAR
         'scaling_factor': scaling_factor,  # variance between spatial points
         'K': K,  # number of covariates
         'y': y1,  # number of outcomes
