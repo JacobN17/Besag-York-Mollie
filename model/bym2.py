@@ -19,17 +19,19 @@ def generate_model():
     df = pd.read_csv(path)
 
     # defining specific columns for spatial points, size, and edges
-    N = 2  # size of actual csv file
+    N = df.size  # size of actual csv file
     latitude = df.iloc[:, 0].values  # latitude points of specified geolocation points from csv file
-    longitude = df.iloc[:, 1].values  # longitude points of specified geolocation points from csv file
+    longitude = df.iloc[:, 1].values  # TODO: Make dimensions aligned as N x 1
     edges = 10  # arbitrary number of edges
-    K = len(latitude)  # total number of data entries
+    K = len(latitude)   # total number of data entries
+    new_lon = np.reshape(longitude, (K, 1))
     scaling_factor = 2.0  # factor of two for variance consistency
     y1 = []  # number of variables involved (coordinates) ranging from 1-2 in random sequences
     for i in range(N):
         rand = r.randint(1, 2)
         y1.append(rand)
-    design_matrix = np.column_stack((latitude, longitude))  # TODO: Fix dimensions for col of m1 and rows of m2
+    design_matrix = [[latitude], [new_lon]]  # TODO: Fix dimensions for col of m1 and rows of m2
+    print(design_matrix)
 
     # stan code block for the data and parameters
     stan_code = """
@@ -46,8 +48,9 @@ def generate_model():
         int<lower=1, upper=N> node2[edges];
         real<lower=0> scaling_factor;
         int<lower=1> K;
+        int<lower=1> K1;
         int<lower=0> y[N];
-        matrix[K, N] x; 
+        matrix[K1, K] x;
     }
         
     parameters {
@@ -84,6 +87,7 @@ def generate_model():
         'node2': [1, 1, 2, 2, 2, 2, 1, 2, 2, 1],  # set of indices corresponding to 2nd component(j) of ICAR
         'scaling_factor': scaling_factor,  # variance between spatial points
         'K': K,  # number of covariates
+        'K1': 2,
         'y': y1,  # number of outcomes
         'x': design_matrix  # matrix for design of the structure of graph
     }
