@@ -23,14 +23,13 @@ def generate_model():
     latitude = df.iloc[:, 0].values  # latitude points of specified geolocation points from csv file
     longitude = df.iloc[:, 1].values  # TODO: Make dimensions aligned as N x 1
     edges = 10  # arbitrary number of edges
-    K = len(latitude)   # total number of data entries
-    new_lon = np.reshape(longitude, (K, 1))
+    K = len(latitude)  # total number of data entries
     scaling_factor = 2.0  # factor of two for variance consistency
     y1 = []  # number of variables involved (coordinates) ranging from 1-2 in random sequences
     for i in range(N):
         rand = r.randint(1, 2)
         y1.append(rand)
-    design_matrix = [[latitude], [new_lon]]  # TODO: Fix dimensions for col of m1 and rows of m2
+    design_matrix = np.transpose([[latitude], [longitude]])  # TODO: Fix dimensions for col of m1 and rows of m2
     print(design_matrix)
 
     # stan code block for the data and parameters
@@ -50,7 +49,7 @@ def generate_model():
         int<lower=1> K;
         int<lower=1> K1;
         int<lower=0> y[N];
-        matrix[K1, K] x;
+        matrix[K, K1] x;
     }
         
     parameters {
