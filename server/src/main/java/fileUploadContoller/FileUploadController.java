@@ -1,22 +1,20 @@
-package com.bymmodel;
+package fileUploadContoller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import repositoryexample.UserDTO;
+import usermodelexample.UserModel;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.xml.transform.Result;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.sql.*;
-import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Logger;
 
 @RestController
 @Controller
@@ -39,7 +37,8 @@ public class FileUploadController {
         Connection c = null;
         Statement stmt = null;
         try {
-            Class.forName("org.postgresql.Driver");
+//            Class.forName("org.postgresql.Driver");
+            Class.forName("com.sap.db.jdbc.Driver");
             c = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/esri",
                             "postgres", "Iamrigo27");
@@ -49,6 +48,16 @@ public class FileUploadController {
         }
         return c;
     }
+//Calls the USERDTO class to create an object
+    @Autowired
+    private UserDTO use;
+// uses the feedUserData path to check if the Data is being inserted to the DB
+// Calls ont he UserDTO object use to save the User Data
+    @RequestMapping(path = "feedUserData")
+    public void setDataInDB(){
+        use.saveUserData();
+    }
+
 
     @GetMapping("/")
     public String index() {

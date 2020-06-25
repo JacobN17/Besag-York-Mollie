@@ -1,4 +1,4 @@
-package com.bymmodel;
+package CsvBymModel;
 
 import com.opencsv.bean.CsvBindByName;
 

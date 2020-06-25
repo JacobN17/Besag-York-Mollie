@@ -1,19 +1,24 @@
-package com.bymmodel;
+package usermodelexample;
 
-import com.opencsv.bean.CsvBindByName;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class UserModel {
     /**
      * Fields
      */
-    @CsvBindByName
-    private long Id;
-    @CsvBindByName
-    private String firstname;
-    @CsvBindByName
-    private String lastname;
-    @CsvBindByName
-    private int age;
+
+    @Id
+    @GeneratedValue
+    public long Id;
+    public String firstname;
+    public String lastname;
+    public int age;
+
+    public UserModel() {
+    }
 
     /**
      * Constructor for the model UserModel Class
@@ -22,6 +27,7 @@ public class UserModel {
      * @param lastname
      * @param age
      */
+
     public UserModel(long Id, String firstname, String lastname, int age) {
         this.Id = Id;
         this.firstname = firstname;
@@ -45,8 +51,8 @@ public class UserModel {
     public String getFirstname(){
         return this.firstname;
     }
-    public void setFirstname(String fName) {
-        this.firstname= fName;
+    public void setFirstname(String firstname) {
+        this.firstname= firstname;
     }
 
     /**
@@ -69,4 +75,21 @@ public class UserModel {
     public void setAge(int age) {
         this.age = age;
     }
+
+
+    /**
+     * Not sure what these are supposed to do or if they work.
+     * They has to be created to work with the UserDto class
+     * @param datum
+     */
+
+    public void lastname(String datum) {
+    }
+
+    public void firstname(String datum) {
+    }
+
+    public void age(String datum) {
+    }
+
 }
