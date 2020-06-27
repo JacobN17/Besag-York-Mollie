@@ -12,15 +12,15 @@ public class UserModel {
 
     @Id
     @GeneratedValue
-    public long Id;
-    public String firstname;
-    public String lastname;
-    public int age;
+    private Integer Id;
+    private  String firstname;
+    private String lastname;
+    private int age;
 
     public UserModel() {
-    }
 
-    /**
+    }
+/**
      * Constructor for the model UserModel Class
      * @param Id
      * @param firstname
@@ -28,7 +28,7 @@ public class UserModel {
      * @param age
      */
 
-    public UserModel(long Id, String firstname, String lastname, int age) {
+    public UserModel(Integer Id, String firstname, String lastname, int age) {
         this.Id = Id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -76,6 +76,15 @@ public class UserModel {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "Id=" + Id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", age=" + age +
+                '}';
+    }
 
     /**
      * Not sure what these are supposed to do or if they work.
