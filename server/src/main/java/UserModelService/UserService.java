@@ -19,13 +19,13 @@ public class UserService {
 
     public void saveUserData() {
         try{
-            BufferedReader br = new BufferedReader(new FileReader("server/src/UserExample.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("UserExample.csv"));
             while ((Line=br.readLine())!=null){
                 String [] data = Line.split(",");
                 UserModel use = new UserModel();
-                use.firstname(data[0]);
-                use.lastname(data[1]);
-                use.age(data[2]);
+                use.setfirstname(data[0]);
+                use.setlastname(data[1]);
+                use.setage(data[2]);
                 cdto.save(use);
             }
         } catch (FileNotFoundException e) {

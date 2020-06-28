@@ -1,21 +1,30 @@
 package usermodelexample;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.data.jpa.repository.EntityGraph;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
+//@Table(name = "UserModel")
 public class UserModel {
     /**
      * Fields
      */
 
     @Id
-    @GeneratedValue
-    private Integer Id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long Id;
+
+//   @Column(name = "firstname")
     private  String firstname;
+
+//    @Column(name = "firstname")
     private String lastname;
-    private int age;
+
+//    @Column(name = "age")
+    private String age;
+
 
     public UserModel() {
 
@@ -28,7 +37,7 @@ public class UserModel {
      * @param age
      */
 
-    public UserModel(Integer Id, String firstname, String lastname, int age) {
+    public UserModel(Long Id, String firstname, String lastname, String age) {
         this.Id = Id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -41,38 +50,38 @@ public class UserModel {
     public long getId() {
         return this.Id;
     }
-    public void setId(int Id) {
+    public void setId(long Id) {
         this.Id = Id;
     }
 
     /**
      * Getter and Setter for firstname
      */
-    public String getFirstname(){
+    public String getfirstname(){
         return this.firstname;
     }
-    public void setFirstname(String firstname) {
+    public void setfirstname(String firstname) {
         this.firstname= firstname;
     }
 
     /**
      * Getter and Setter for lastname
      */
-    public String getLastname() {
+    public String getlastname() {
         return this.lastname;
     }
-    public void setLastname(String lastname) {
+    public void setlastname(String lastname) {
         this.lastname = lastname;
     }
 
     /**
      * Getter and Setter for age
      */
-    public int getAge() {
+    public String getage() {
         return this.age;
     }
 
-    public void setAge(int age) {
+    public void setage(String age) {
         this.age = age;
     }
 
@@ -91,14 +100,14 @@ public class UserModel {
      * They has to be created to work with the UserDto class
      * @param datum
      */
-
-    public void lastname(String datum) {
-    }
-
-    public void firstname(String datum) {
-    }
-
-    public void age(String datum) {
-    }
+//
+//    public void lastname(String datum) {
+//    }
+//
+//    public void firstname(String datum) {
+//    }
+//
+//    public void age(String datum) {
+//    }
 
 }

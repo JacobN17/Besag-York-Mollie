@@ -28,7 +28,7 @@ public class FileUploadController {
  * the controller class handles the uploading and parsing of a CSV file
  */
 
-//@CrossOrigin("http://localhost:3000") // Allow requests from specific origins
+//@CrossOrigin("http://localhost:3000") // Allow requests from specific originsfile
 //
     private static final Logger LOG = Logger.getLogger(String.valueOf(FileUploadController.class));
 //

@@ -3,6 +3,7 @@ package repositoryexample;
 
 import com.opencsv.CSVReader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import usermodelexample.UserModel;
@@ -12,7 +13,7 @@ import java.io.*;
 import java.util.Scanner;
 
 @Repository
-public interface  UserDTO extends CrudRepository<UserModel, Integer> {
+public interface  UserDTO extends JpaRepository<UserModel, Long> {
 
 }
 //
