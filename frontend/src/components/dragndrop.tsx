@@ -2,6 +2,7 @@ import React, { useMemo, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import '../css/dragndrop.css';
 
+
 const baseStyle = {
     flex: 1,
     display: 'flex',
@@ -15,7 +16,7 @@ const baseStyle = {
     backgroundColor: 'rgba(92,88,88,0.22)',
     transition: 'border .24s ease-in-out',
     minHeight: 300,
-    minWidth: 550,
+    minWidth: 750,
 
 };
 
@@ -36,7 +37,7 @@ export const Dragndrop: React.FC<UploadFile> = ({ files, onDrop}) => {
         getInputProps,
         isDragActive,
     } = useDropzone({
-        accept: 'image/*, text/csv, application/json, .xlsx, .xls',
+        accept: 'image/*, text/csv, application/json',
         onDrop: onDrop
     });
 
@@ -47,6 +48,12 @@ export const Dragndrop: React.FC<UploadFile> = ({ files, onDrop}) => {
         isDragActive,
     ]);
 
+    const displayDroppedFile = files.map(file => (
+        <li key={file.name}>
+            {file.name} - {file.size} bytes
+        </li>
+    ))
+
     useEffect(() => () => {
         // Make sure to revoke the data uris to avoid memory leaks
         files.forEach((file: any) => URL.revokeObjectURL(file.preview));
@@ -55,10 +62,12 @@ export const Dragndrop: React.FC<UploadFile> = ({ files, onDrop}) => {
     return (
         <div className="container">
             <div {...getRootProps({ style })}>
-                <input {...getInputProps()} />
-                <input {...getInputProps()} />
+                <input {...getInputProps()} id="csv-file"/>
                 <p>Drag 'n' drop some files here, or click to select files</p>
             </div>
+            <aside className="display-uploaded-file" >
+                <ul>{displayDroppedFile}</ul>
+            </aside>
         </div>
     );
 }

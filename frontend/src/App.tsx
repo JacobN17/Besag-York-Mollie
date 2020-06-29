@@ -6,4 +6,3 @@ export const App: React.FC <{}> = (props) => {
         <Navigation />
   )
 };
-

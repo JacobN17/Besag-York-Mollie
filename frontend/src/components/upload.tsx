@@ -1,20 +1,16 @@
 import * as React from 'react';
-import { useState, } from 'react';
+import {useState} from 'react';
 import {Dragndrop} from './dragndrop';
 import '../css/upload.css';
-import Papa from 'papaparse';
-
-
+import Papa, {ParseResult} from 'papaparse';
+import $ from 'jquery';
+// @ts-ignore
+import TableToExcel from '@linways/table-to-excel';
 
 
 export const Upload = () => {
     const [files, setFiles] = useState<File[]>([]);
 
-    const displayFile = files.map(file => (
-        <li key={file.type}>
-            {file.name} - {file.size} bytes
-        </li>
-    ));
 
     const onDrop = (acceptedFiles: File[]) => {
         acceptedFiles.map(file => (
@@ -25,7 +21,7 @@ export const Upload = () => {
 
 
     const uploadFile = () => {
-        const uploadURL = 'http://localhost:8080/upload';
+        const uploadURL = 'http://localhost:8080/fileupload';
 
         files.forEach(file => {
             const formData = new FormData();
@@ -44,31 +40,68 @@ export const Upload = () => {
 
             //==== Parse CSV File ====
             Papa.parse(file, {
-                delimiter: "",
-                complete: updateData,
-                header: true
-            })
+                // Key data by field name instead of index/position
+                header: true,
+                // Converts numeric/boolean data
+                dynamicTyping: true,
+                complete: function (result) {
+                    console.log(result)
+                    displayParsedObject(result);
+                }
+            });
         })
     }
 
-    const updateData = (result: { data: any; }) => {
-        const data = result.data;
-        console.log(data);
+    //==== Generates html table from parsed csv file ====
+    function displayParsedObject(papa: ParseResult<any>){
+        let header = "";
+        let tbody = "";
+        for (const p in papa.meta.fields) {
+            header += "<th>" + papa.meta.fields[p] + "</th>";
+        }
+
+        for (let i = 0; i < papa.data.length; i++) {
+            let row = "";
+            for (const z in papa.data[i]) {
+                row += "<td>" + papa.data[i][z] + "</td>";
+            }
+            tbody += "<tr>" + row + "</tr>";
+        }
+
+        //build a table
+        $("output").html(
+            '<table class="table" id="csv-table"><thead>' +
+            header +
+            "</thead><tbody>" +
+            tbody +
+            "</tbody></table>"
+        );
     }
 
-    //TODO Post call to store data into db
+    const csvFile = document.getElementById('csv-file') as HTMLInputElement;
+    $(document).ready(function () {
+        $(csvFile).change(uploadFile)
+    });
 
-    //TODO GET call data from db table
+
+    //==== Export CSV to Excel ====
+    let exportBtn = document.getElementById("export-button") as HTMLTableElement;
+    if (exportBtn) {
+        exportBtn.addEventListener("click",  ev => {
+            let csvtable = document.getElementById("csv-table") as HTMLInputElement;
+            TableToExcel.convert(csvtable);
+        })
+    }
+
 
     return (
         <div>
+            <output/>
+            <button id="export-button">Export to Excel</button>
             <Dragndrop files={files} onDrop={onDrop}/>
             <img className="drag-icon" src="https://img.icons8.com/cotton/64/000000/upload-to-cloud--v1.png"
                  alt="cloud-img"/>
             <button className="upload-btn" value="Submit" onClick={() => uploadFile()}>Upload</button>
-            <aside className="display-uploaded-file">
-                <ul>{displayFile}</ul>
-            </aside>
         </div>
     );
 }
