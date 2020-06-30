@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import '../css/home.css';
 import '../css/converter.css';
 
-// TODO: 
-// REFACTOR CODE
-// HANDLE NESTED JSON FILES
-
 let csvFields = function toCsvFormat(str: string): string {
     const { Parser, transforms: { unwind } } = require('json2csv');
     
@@ -24,24 +20,11 @@ let csvFields = function toCsvFormat(str: string): string {
         }
     }
 
-    // find fields
     fields = fields.filter((item, index) => {
         return fields.indexOf(item) === index;
     });
 
-    // find if there is anything to unwind
-    let transformFields: string[] = [];
-    let obj: JSON = JSON.parse(str);
-    Object.entries(obj).forEach(([key, value]) => {
-        Object.entries(value).forEach(([k, v]) => {
-            if (typeof v === 'object' && v !== null && !transformFields.includes(k)) {
-                transformFields.push(k); 
-            }
-        })
-    })
-
-    // TODO: HANDLE FOR ARRAYS GREATER THAN LENGTH 1
-    const transforms = [unwind({paths: [transformFields[0]]})];
+    const transforms = handleNestedJSON(str);
     const opts = { fields };
 
     try {
@@ -59,7 +42,7 @@ let csvFields = function toCsvFormat(str: string): string {
 
 // this should trigger if they choose to download
 function createCSV(): void {
-    const { Parser } = require('json2csv');
+    const { Parser, transforms: { unwind }} = require('json2csv');
     let textArea = document.getElementById('input') as HTMLInputElement;
     let data = textArea.value;
     let fields: string[] = [];
@@ -81,15 +64,33 @@ function createCSV(): void {
         return fields.indexOf(item) === index;
     })
 
+    const transforms = handleNestedJSON(data);
     const opts = { fields };
     try {
-        const parser = new Parser(opts);
+        const parser = new Parser({opts, transforms});
         const csv = parser.parse(JSON.parse(data));   
         downloadCSV(csv);   
     } catch (err) {
         // error
     }
     
+}
+
+function handleNestedJSON(data: string): any[] {
+    const { transforms: { unwind }} = require('json2csv');
+    let transformFields: string[] = [];
+    let obj: JSON = JSON.parse(data);
+    Object.entries(obj).forEach(([key, value]) => {
+        Object.entries(value).forEach(([k, v]) => {
+            if (typeof v === 'object' && v !== null && !transformFields.includes(k)) {
+                transformFields.push(k); 
+            }
+        })
+    })
+
+    // TODO: HANDLE FOR ARRAYS GREATER THAN LENGTH 1
+    const transforms = [unwind({paths: [transformFields[0]]})];
+    return transforms;
 }
 
 // dl function
