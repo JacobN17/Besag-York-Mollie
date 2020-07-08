@@ -53,6 +53,23 @@ public class FileUploadController {
         return c;
     }
 
+    //Establishes connection to MYSQLdatabase
+    private Connection mySQlconnect() {
+        Connection c = null;
+        Statement stmt = null;
+        try {
+            Class.forName("org.mysql.Driver");
+//            Class.forName("com.sap.db.jdbc.Driver");
+            c = DriverManager
+                    .getConnection("jdbc:mysql://localhost:3306/esri2",
+                            "root", "password");
+            System.out.println("Opened database successfully");
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+        return c;
+    }
+
 //Calls the USERDTO class to create an object
     @Autowired
     private UserService use;
