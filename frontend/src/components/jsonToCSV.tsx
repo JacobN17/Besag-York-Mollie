@@ -85,22 +85,27 @@ function transformPath(path: string[]) {
     return transform;    
 }
 
-// this is just getting fields
 function getFields(data: string): string[] {
-    const { transforms: { unwind }} = require('json2csv');
     const { flatten } = require('flat');
-    let transformFields: string[] = [];
+    const regEx: RegExp = /\b[0-9]\./g;
     let obj: JSON = JSON.parse(data);
     let flatJSON = flatten(obj);
-    const regEx: RegExp = /\b[0-9]\./g;
+    let transformFields: string[] = [];
     
     Object.entries(flatJSON).forEach(([key,value]) => {
         if (!transformFields.includes(key.replace(regEx, ""))) {
-            transformFields.push(key.replace(regEx, ""));
+            key = key.replace(regEx,"");
+            if (key.match(/\.[0-9]$/)) {
+                let updateKey = key.replace(/\.[0-9]$/,"");
+                transformFields.push(updateKey);
+            } else {
+                transformFields.push(key.replace(regEx, ""));
+            }
         }
     })
-    
-    return transformFields;
+
+    let filteredFields = transformFields.filter((item, index) => transformFields.indexOf(item) === index);
+    return filteredFields;
 }
 
 
