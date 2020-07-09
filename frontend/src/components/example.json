@@ -28,3 +28,128 @@
 		"value": "#000"
     }
 ]
+
+{
+	[
+		"as": "AS16509 Amazon.com, Inc.",
+		"city": "Boardman",
+		"country": "United States",
+		"countryCode": "US",
+		"isp": "Amazon",
+		"lat": 45.8696,
+		"lon": -119.688,
+		"org": "Amazon",
+		"query": "54.148.84.95",
+		"region": "OR",
+		"regionName": "Oregon",
+		"status": "success",
+		"timezone": "America\/Los_Angeles",
+		"zip": "97818"
+	}
+]
+
+
+
+[
+	{
+	  "carModel": "Audi",
+	  "price": 0,
+	  "colors": ["blue","green","yellow"]
+	}, {
+	  "carModel": "BMW",
+	  "price": 15000,
+	  "colors": ["red","blue"]
+	}, {
+	  "carModel": "Mercedes",
+	  "price": 20000,
+	  "colors": "yellow"
+	}, {
+	  "carModel": "Porsche",
+	  "price": 30000,
+	  "colors": ["green","teal","aqua"]
+	}
+]
+
+
+
+
+
+
+
+[
+	{
+	  "carModel": "BMW",
+	  "price": 15000,
+	  "items": [
+		{
+		  "name": "airbag",
+		  "color": "white"
+		}, {
+		  "name": "dashboard",
+		  "color": "black"
+		}
+	  ]
+	}, {
+	  "carModel": "Porsche",
+	  "price": 30000,
+	  "items": [
+		{
+		  "name": "airbag",
+		  "items": [
+			{
+			  "position": "left",
+			  "color": "white"
+			}, {
+			  "position": "right",
+			  "color": "gray"
+			}
+		  ]
+		}, {
+		  "name": "dashboard",
+		  "items": [
+			{
+			  "position": "left",
+			  "color": "gray"
+			}, {
+			  "position": "right",
+			  "color": "black"
+			}
+		  ]
+		}
+	  ]
+	}
+]
+
+
+
+
+
+[
+	{
+		"id": "0001",
+		"type": "donut",
+		"name": "Cake",
+		"ppu": 0.55,
+		"batters":
+			{
+				"batter":
+					[
+						{ "id": "1001", "type": "Regular" },
+						{ "id": "1002", "type": "Chocolate" },
+						{ "id": "1003", "type": "Blueberry" },
+						{ "id": "1004", "type": "Devil's Food" }
+					]
+			},
+		"topping":
+			[
+				{ "id": "5001", "type": "None" },
+				{ "id": "5002", "type": "Glazed" },
+				{ "id": "5005", "type": "Sugar" },
+				{ "id": "5007", "type": "Powdered Sugar" },
+				{ "id": "5006", "type": "Chocolate with Sprinkles" },
+				{ "id": "5003", "type": "Chocolate" },
+				{ "id": "5004", "type": "Maple" }
+			]
+	}
+
+]

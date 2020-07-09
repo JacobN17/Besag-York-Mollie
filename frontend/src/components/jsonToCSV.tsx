@@ -1,39 +1,30 @@
 import React, { useState } from 'react';
-import '../css/home.css';
 import '../css/converter.css';
 
 let csvFields = function toCsvFormat(str: string): string {
     const { Parser, transforms: { unwind } } = require('json2csv');
-    
     let fields: string[] = [];
+    
     if (str) {
         try {
-            let obj: JSON = JSON.parse(str);
-            Object.entries(obj).forEach(([key,value]) => {
-                for (let v in value) {
-                    fields.push(v);
-                }
-            })
+            fields = getFields(str);
         } catch(e) {
             let area = document.getElementById('json') as HTMLInputElement;
             area.innerHTML = "Please check JSON formatting";
         }
     }
 
-    fields = fields.filter((item, index) => {
-        return fields.indexOf(item) === index;
-    });
-
-    const transforms = handleNestedJSON(str);
-    const opts = { fields };
-
+    const path = transformPath(fields);
+    const transforms = [unwind({ paths: path })];
+    
     try {
-        const parser = new Parser({opts, transforms});
-        const csv = parser.parse(JSON.parse(str));      
+        const parser = new Parser({ fields, transforms });    
+        const csv = parser.parse(JSON.parse(str));   
         let area = document.getElementById('json') as HTMLInputElement;
         area.innerHTML = csv;
     } catch (err) {
         // error
+        console.error(err);
     }
 
     return str;
@@ -48,26 +39,21 @@ function createCSV(): void {
     let fields: string[] = [];
     if (data) {
         try {
-            const objToJson: JSON = JSON.parse(data);
-            Object.entries(objToJson).forEach(([key,value]) => {
-                for (let v in value) {
-                    fields.push(v);
-                }
-            })
+            fields = getFields(data);
         } catch (e) {
             // error
             console.log("data to json failed");
         }
     }
-
+    
     fields = fields.filter((item, index) => {
         return fields.indexOf(item) === index;
     })
-
-    const transforms = handleNestedJSON(data);
-    const opts = { fields };
+    
+    const path = transformPath(fields);
+    const transforms = [unwind({ paths: path })];
     try {
-        const parser = new Parser({opts, transforms});
+        const parser = new Parser({fields, transforms});
         const csv = parser.parse(JSON.parse(data));   
         downloadCSV(csv);   
     } catch (err) {
@@ -76,24 +62,51 @@ function createCSV(): void {
     
 }
 
-function handleNestedJSON(data: string): any[] {
-    const { transforms: { unwind }} = require('json2csv');
-    let transformFields: string[] = [];
-    let obj: JSON = JSON.parse(data);
-    Object.entries(obj).forEach(([key, value]) => {
-        Object.entries(value).forEach(([k, v]) => {
-            if (typeof v === 'object' && v !== null && !transformFields.includes(k)) {
-                transformFields.push(k); 
-            }
-        })
-    })
+function transformPath(path: string[]) {
+    let transform: string[] = [];
 
-    // TODO: HANDLE FOR ARRAYS GREATER THAN LENGTH 1
-    const transforms = [unwind({paths: [transformFields[0]]})];
-    return transforms;
+    for (let word of path) {
+        let temp = word.split('.');
+        if (temp.length > 1) {
+            let newTemp = temp.slice(0, -1);
+            if (newTemp.length > 1) {
+                let start = newTemp.shift();
+                if (start !== undefined) {
+                    let result = start.concat(".", ...newTemp);
+                    !transform.includes(result) ? transform.push(result) : console.log("duplicate");
+                }
+                
+            } else if (!transform.includes(newTemp[0])) {
+                transform.push(newTemp[0]);
+            }
+        }
+    }
+
+    return transform;    
 }
 
+// this is just getting fields
+function getFields(data: string): string[] {
+    const { transforms: { unwind }} = require('json2csv');
+    const { flatten } = require('flat');
+    let transformFields: string[] = [];
+    let obj: JSON = JSON.parse(data);
+    let flatJSON = flatten(obj);
+    const regEx: RegExp = /\b[0-9]\./g;
+    
+    Object.entries(flatJSON).forEach(([key,value]) => {
+        if (!transformFields.includes(key.replace(regEx, ""))) {
+            transformFields.push(key.replace(regEx, ""));
+        }
+    })
+    
+    return transformFields;
+}
+
+
+
 // dl function
+// TODO: perform chunking
 function downloadCSV(data: string): void {
     const blob = new Blob([data], { type: 'text/csv' });
     const url = window.URL.createObjectURL(blob); //creates url version of csv
@@ -106,20 +119,18 @@ function downloadCSV(data: string): void {
     document.body.removeChild(a);
 }
 
-
 export const Converter: React.FC = () => {    
     return (
-        <div className="input-container">
-            <div className="form-wrapper">
-                <label>take in json</label>
-                <br />
-                <textarea id="input" className="json-area" onChange={event => csvFields(event.target.value)}></textarea>
-                <br />
-                <label>output csv file to download</label>
-                <br />
-                <textarea id="json" className="json-output"></textarea>
-                <button onClick={createCSV}>download csv</button>
+        <div className="form-wrapper">
+            <div className="input-field-div">
+                <textarea id="input" className="json-area" placeholder="Paste JSON text here" onChange={ event => csvFields(event.target.value) }></textarea>
             </div>
+            
+            <div className="input-field-div">
+                <textarea id="json" className="json-output" placeholder="Copy output or download csv file"></textarea>
+            <div/>                    
+            <button className="download-button" onClick={ createCSV }>download</button>
+        </div>
         </div>
     )
 }

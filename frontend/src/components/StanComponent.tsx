@@ -4,7 +4,6 @@ import axios from 'axios';
 import './SidebarComponent.css';
 
 
-
 interface StanProps {
     action: string
 }
