@@ -6,11 +6,11 @@ import Papa, {ParseResult} from 'papaparse';
 import $ from 'jquery';
 // @ts-ignore
 import TableToExcel from '@linways/table-to-excel';
+import * as XLSX from 'xlsx';
 
 
 export const Upload = () => {
     const [files, setFiles] = useState<File[]>([]);
-
 
     const onDrop = (acceptedFiles: File[]) => {
         acceptedFiles.map(file => (
@@ -18,7 +18,6 @@ export const Upload = () => {
         ))
         console.log('File Dropped', setFiles(acceptedFiles))
     }
-
 
     const uploadFile = () => {
         const uploadURL = 'http://localhost:8080/fileupload';
@@ -38,13 +37,12 @@ export const Upload = () => {
                 }
             }).catch(error => console.log(error, 'Error Could not Upload File'))
 
+
             //==== Parse CSV File ====
             Papa.parse(file, {
-                // Key data by field name instead of index/position
-                header: true,
-                // Converts numeric/boolean data
-                dynamicTyping: true,
-                complete: function (result) {
+                header: true,           // Key data by field name instead of index/position
+                dynamicTyping: true,    // Converts numeric/boolean data
+                complete: (result: any) => {
                     console.log(result)
                     displayParsedObject(result);
                 }
@@ -52,8 +50,11 @@ export const Upload = () => {
         })
     }
 
-    //==== Generates html table from parsed csv file ====
-    function displayParsedObject(papa: ParseResult<any>){
+    /**
+     * Generates html table from parsed csv file
+     * @param papa file object to be parsed
+     */
+    function displayParsedObject(papa: ParseResult<any>) {
         let header = "";
         let tbody = "";
         for (const p in papa.meta.fields) {
@@ -71,28 +72,26 @@ export const Upload = () => {
         //build a table
         $("output").html(
             '<table class="table" id="csv-table"><thead>' +
-            header +
-            "</thead><tbody>" +
-            tbody +
-            "</tbody></table>"
+            header + "</thead><tbody>" +
+            tbody +  "</tbody></table>"
         );
     }
 
-    const csvFile = document.getElementById('csv-file') as HTMLInputElement;
-    $(document).ready(function () {
-        $(csvFile).change(uploadFile)
-    });
-
-
-    //==== Export CSV to Excel ====
-    let exportBtn = document.getElementById("export-button") as HTMLTableElement;
-    if (exportBtn) {
-        exportBtn.addEventListener("click",  ev => {
-            let csvtable = document.getElementById("csv-table") as HTMLInputElement;
-            TableToExcel.convert(csvtable);
+    const csvFile = document.getElementById('dropped-file') as HTMLInputElement;
+    if (csvFile) {
+        csvFile.addEventListener("click", ev => {
+            $(csvFile).change(uploadFile)
         })
     }
 
+    //==== Export CSV to Excel ====
+    let exportBtn = document.getElementById("export-button") as HTMLButtonElement;
+    if (exportBtn) {
+        exportBtn.addEventListener("click",  ev => {
+            let csvTable = document.getElementById("csv-table") as HTMLTableElement;
+            TableToExcel.convert(csvTable);
+        })
+    }
 
     return (
         <div>

@@ -11,7 +11,7 @@ interface FormProps {
 
 
 function SubmitForm() {
-    const file = document.getElementById("upload") as HTMLInputElement;
+    const file = document.getElementById("file") as HTMLInputElement;
     if (file.files != null) {
         const formData = new FormData();
         formData.append("upload", file.files[0]);
@@ -42,7 +42,7 @@ export const Bym: React.FC<FormProps> = ({action}) => {
                   isSubmitting,
               }) => (
                 <div className="model-container">
-                    <form onSubmit={handleSubmit} className="form" action="/upload"
+                    <form onSubmit={handleSubmit} className="form" action="/fileUpload"
                           encType="multipart/form-data" method="POST">
 
                         <label htmlFor="data">Data</label>

@@ -2,7 +2,6 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import '../css/navigation.css';
 
-
 export const Navigation: React.FC <{}> = () => {
     return (
         <>

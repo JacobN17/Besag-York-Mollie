@@ -32,12 +32,12 @@ button:hover {
     background-color: rgba(13, 17, 46, 0.37);
 }
 
-table{
+table {
     width:100%;
     table-layout: fixed;
 }
 
-.tbl-header{
+.tbl-header {
     background-color: rgba(255,255,255,0.3);
 }
 
@@ -48,7 +48,7 @@ table{
     border: 1px solid rgba(255,255,255,0.3);
 }
 
-th{
+th {
     padding: 20px 15px;
     text-align: left;
     font-weight: 500;
@@ -57,7 +57,7 @@ th{
     text-transform: uppercase;
 }
 
-td{
+td {
     padding: 15px;
     text-align: left;
     vertical-align:middle;
@@ -67,7 +67,7 @@ td{
     border-bottom: solid 1px rgba(255,255,255,0.1);
 }
 
-section{
+section {
     margin: 50px;
 }
 

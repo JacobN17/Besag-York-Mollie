@@ -37,7 +37,7 @@ export const Dragndrop: React.FC<UploadFile> = ({ files, onDrop}) => {
         getInputProps,
         isDragActive,
     } = useDropzone({
-        accept: 'image/*, text/csv, application/json',
+        accept: 'text/csv, application/json, .xls, .xlsx, ',
         onDrop: onDrop
     });
 
@@ -62,7 +62,7 @@ export const Dragndrop: React.FC<UploadFile> = ({ files, onDrop}) => {
     return (
         <div className="container">
             <div {...getRootProps({ style })}>
-                <input {...getInputProps()} id="csv-file"/>
+                <input {...getInputProps()} id="dropped-file"/>
                 <p>Drag 'n' drop some files here, or click to select files</p>
             </div>
             <aside className="display-uploaded-file" >

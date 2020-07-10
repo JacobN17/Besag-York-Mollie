@@ -1,5 +1,24 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Getting Started 
+Download or clone this repository.
+
+### `yarn add or npm install` 
+
+To install all the dependencies 
+
+### 🖐 Requirements
+
+**Node:**
+- NPM >= 6.x
+
+**Typescript:**
+- tsc >= 3.x
+
+**Yarn:**
+- yarn >= 1.x
+
+
 ## Available Scripts
 
 In the project directory, you can run:

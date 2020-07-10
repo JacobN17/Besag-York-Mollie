@@ -4,8 +4,6 @@
   "private": true,
   "dependencies": {
     "@linways/table-to-excel": "^1.0.4",
-    "@material-ui/core": "^4.10.2",
-    "@progress/kendo-react-excel-export": "^3.14.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -14,31 +12,22 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/react-router-dom": "^5.1.5",
-    "@types/react-table": "^7.0.19",
     "@types/styled-components": "^5.1.0",
-    "csv": "^5.3.2",
-    "file-saver": "^2.0.2",
+    "axios": "^0.19.2",
     "formik": "^2.1.4",
     "jquery": "^3.5.1",
     "papaparse": "^5.2.0",
     "react": "^16.13.1",
-    "react-bootstrap": "^1.0.1",
-    "react-csv-reader": "^3.0.6",
-    "react-csv-to-table": "0.0.4",
-    "react-csv-viewer": "^1.0.4",
     "react-dom": "^16.13.1",
     "react-dropzone": "^11.0.1",
-    "react-dropzone-uploader": "^2.11.0",
     "react-file-reader": "^1.1.4",
-    "react-papaparse": "^3.3.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "react-table": "^7.2.0",
+    "read-excel-file": "^4.0.6",
     "styled-components": "^5.1.1",
-    "tableexport": "^5.2.0",
     "typescript": "~3.7.5",
     "xlsx": "^0.16.2",
-    "yup": "^0.29.1"
+    "xlsx-parse-json": "^3.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -62,7 +51,6 @@
     ]
   },
   "devDependencies": {
-    "@types/file-saver": "^2.0.1",
-    "@types/yup": "^0.29.3"
+    "@types/papaparse": "^5.0.4"
   }
 }
