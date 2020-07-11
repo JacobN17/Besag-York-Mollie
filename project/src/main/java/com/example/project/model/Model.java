@@ -1,12 +1,15 @@
 package com.example.project.model;
 
 
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
+@EnableJpaRepositories(basePackages = { "com.example.project.model" })
 @Table(name = "exuser")
 public class Model {
 
