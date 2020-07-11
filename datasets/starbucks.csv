@@ -1,3 +1,4 @@
+latitude,longitude
 -159.3963,21.97066,Starbucks: Lihue,"Kukui Grove Shoppping Center 3-2600 Kaumualii Hwy; Lihue, HI 96766"
 -158.0274,21.34273,Starbucks: Honolulu,"91-1401 Fort Weaver Rd, Ewa Beach; Honolulu, HI 96706; (808) 685- 4594"
 -158.012,21.46285,Starbucks: Mililani,"95-221 Kipapa Drive; Mililani, HI 96789; (808) 625- 5401"
@@ -634,7 +635,7 @@
 -122.2766,47.48738,Starbucks: Tukwila,"13038 Interurban Ave; Tukwila, WA 98168; (206) 244- 7062"
 -122.2765,37.80047,Starbucks: Oakland,"1200 Clay Street; Oakland, CA 94607; (510) 832-1767"
 -122.2765,45.39977,Starbucks: Sandy,"37601 Hwy 26; Sandy, OR 97055; (503) 668- 2330"
--122.2764,37.7796,Starbucks, 
+-122.2764,37.7796,Starbucks,
 -122.2756,37.55554,Starbucks: San Mateo,"921 E. Hillsdale Blvd.; San Mateo, CA 94404; (650) 377- 0711"
 -122.2755,37.52,Starbucks: Belmont,"Ralston & ElCamino; Belmont, CA"
 -122.2751,37.5197,Safeway #1138,"Belmont, CA"
@@ -4338,23 +4339,23 @@
 -85.40687,32.62809,Starbucks: Opelika,"2130 Hamilton Place North; Opelika, AL 36801"
 -85.3928,32.6548,Starbucks: Opelika,"2056 Interstate Drive; Opelika, AL 36801; (334) 745- 0885"
 -85.3857,39.9039,Starbucks: New Castle,"1902 S Memorial Drive; New Castle, IN 47362; (765) 529- 1851"
--85.31063,35.04664,Staples, 
+-85.31063,35.04664,Staples,
 -85.29098,35.04792,Starbucks: Chattanooga,"975 East 3rd Street; Chattanooga, TN 37403; (423) 778- 7762"
 -85.25877,41.03264,Starbucks: Fort Wayne,"5723 Coventry Lane Suite A; Fort Wayne, IN 46804; (260) 459- 8500"
 -85.24937,35.1484,Starbucks: Hixson,"5579 Hwy 153; Hixson, TN 37343; (423) 870- 4768"
 -85.2458,35.1335,Starbucks: Chattanooga,"5238 Highway 153; Chattanooga, TN 37343; (423) 875- 8313"
--85.24117,35.12576,Starbucks, 
--85.2183,35.16402,Staples, 
+-85.24117,35.12576,Starbucks,
+-85.2183,35.16402,Staples,
 -85.19393,41.07088,Starbucks: Fort Wayne,"4120 W Jefferson Blvd Ste H12; Fort Wayne, IN 46804; (260) 432- 9690"
 -85.16562,41.17452,Starbucks: Fort Wayne,"10030 Lima Road; Fort Wayne, IN 46818; (260) 490- 3051"
 -85.1619,41.13773,Starbucks: Ft. Wayne,"6403 Lima Rd; Ft. Wayne, IN 46818; (260) 490- 8107"
 -85.15611,35.02914,Starbucks: Chattanooga,"1951 Gunbarrel Rd; Chattanooga, TN 37421; (423) 499- 2670"
--85.15547,35.03045,Staples, 
+-85.15547,35.03045,Staples,
 -85.13552,41.11558,Starbucks: Fort Wayne,"4201 Coldwater Blvd. Suite D3b; Fort Wayne, IN 46805; (260) 373- 0172"
 -85.0897,41.09769,Starbucks: Fort Wayne,"3905 E State Blvd; Fort Wayne, IN 46805; (260) 471- 4829"
 -85.06431,41.12025,Starbucks: Fort Wayne,"6119 Stellhorn RD; Fort Wayne, IN 46835"
 -84.89919,38.16815,Starbucks: Frankfort,"1303 US 127 South; Frankfort, KY 40601; (502) 223- 6608"
--84.88534,35.15892,Staples, 
+-84.88534,35.15892,Staples,
 -84.88225,35.1624,Starbucks: Cleveland,"653 West Inman St; Cleveland, TN 37311; (423) 472- 1351"
 -84.75682,33.39653,Starbucks: Newnan,"733 Bullsboro Road; Newnan, GA 30265; (678) 423- 9233"
 -84.75423,34.01173,Starbucks: Dallas,"8876 Dallas-Acworth Hwy; Dallas, GA 30123; (678) 574- 7173"

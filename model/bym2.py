@@ -15,24 +15,24 @@ import random as r
 
 def generate_model():
     # path definition for dataset
-    path = Path("/Users/jacob/Esri/Besag-York-Mollie/datasets/starbucks.csv")
-    df = pd.read_csv(path)
-
-    # defining specific columns for spatial points, size, and edges
-    N = df.size  # size of actual csv file
-    latitude = np.array([df.iloc[:, 0].values])  # latitude points of specified geolocation points from csv file
-    longitude = np.array([df.iloc[:, 1].values])
-    new_lon = longitude.swapaxes(1, 0)
-    edges = 10  # arbitrary number of edges
-    K = len(latitude)  # total number of data entries
+    path = Path("/Users/jacob/Esri/Besag-York-Mollie/datasets/mod-starbucks.csv")
+    df = pd.read_csv(path,
+                     usecols=["latitude", "longitude"])  # defining specific columns for spatial points, size, and edges
+    N = len(df.values)  # size of actual csv file
+    K = 2  # total number of data entries
     scaling_factor = 2.0  # factor of two for variance consistency
+    node1 = []
+    node2 = []
     y1 = []  # number of variables involved (coordinates) ranging from 1-2 in random sequences
     for i in range(N):
         rand = r.randint(1, 2)
         y1.append(rand)
-    # TODO: Remove y-dimension (squeeze) or reconfigure to be a tuple
-    design_matrix = [[latitude], [new_lon]]
-    print(design_matrix)
+        node1.append(rand)
+        node2.append(rand)
+    design_matrix = []
+    for val in df.values:
+        design_matrix.append([val[0], val[1]])
+    edges = len(design_matrix)  # arbitrary number of edges
 
     # stan code block for the data and parameters
     stan_code = """
@@ -49,9 +49,8 @@ def generate_model():
         int<lower=1, upper=N> node2[edges];
         real<lower=0> scaling_factor;
         int<lower=1> K;
-        int<lower=1> K1;
         int<lower=0> y[N];
-        matrix[K, K] x;
+        matrix[N, K] x;
     }
         
     parameters {
@@ -84,13 +83,12 @@ def generate_model():
     bym_data = {
         'N': N,  # size of the graph = number of values in csv
         'edges': edges,  # edge sets representing relations
-        'node1': [1, 1, 2, 2, 2, 2, 1, 1, 2, 1],  # set of indices corresponding to 1st component(i) of ICAR
-        'node2': [1, 1, 2, 2, 2, 2, 1, 2, 2, 1],  # set of indices corresponding to 2nd component(j) of ICAR
+        'node1': node1,  # set of indices corresponding to 1st component(i) of ICAR
+        'node2': node2,  # set of indices corresponding to 2nd component(j) of ICAR
         'scaling_factor': scaling_factor,  # variance between spatial points
         'K': K,  # number of covariates
-        'K1': 2,
         'y': y1,  # number of outcomes
-        'x': design_matrix  # matrix for design of the structure of graph
+        'x': np.array(design_matrix)  # matrix for design of the structure of graph
     }
 
     # Utilize pystan package to allow the built-in StanModel class to fully generate a model and arviz to plot
