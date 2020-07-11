@@ -25,6 +25,7 @@ interface FormProps {
 //             });
 //     }
 // }
+
 function SubmitForm() {
     const formData = new FormData();
     formData.set("data", (document.getElementById("data") as HTMLInputElement).value);
@@ -64,6 +65,7 @@ export const Bym: React.FC<FormProps> = ({action}) => {
                         <input className="box"
                             type="number"
                             name="data"
+                            id="data"
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.data}
@@ -73,6 +75,7 @@ export const Bym: React.FC<FormProps> = ({action}) => {
                         <input
                             type="number"
                             name="dataValues"
+                            id="dataValues"
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.dataValues}
@@ -83,6 +86,7 @@ export const Bym: React.FC<FormProps> = ({action}) => {
                         <input
                             type="number"
                             name="mean"
+                            id="mean"
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.mean}
@@ -92,6 +96,7 @@ export const Bym: React.FC<FormProps> = ({action}) => {
                         <input
                             type="number"
                             name="sd"
+                            id="sd"
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.sd}

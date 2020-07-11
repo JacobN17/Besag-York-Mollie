@@ -1,4 +1,4 @@
-package com.example.project.controller;
+package com.example.project.CSVcontroller;
 
 import com.example.project.helper.CsvHelper;
 import com.example.project.message.ResponseMessage;
@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.sql.*;
 import java.util.List;
 
-@CrossOrigin("http://localhost:8080")
+//@CrossOrigin("http://localhost:8080")
 @Controller
 @RequestMapping("/api/csv")
 public class CSVController {
@@ -33,7 +33,6 @@ public class CSVController {
         Statement stmt = null;
         try {
             Class.forName("org.mysql.Driver");
-//            Class.forName("com.sap.db.jdbc.Driver");
             c = DriverManager
                     .getConnection("jdbc:mysql://localhost:3306/example",
                             "root", "password");
@@ -60,6 +59,7 @@ public class CSVController {
         }
         return c;
     }
+
 
     @PostMapping("/upload")
     public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file")MultipartFile file){
@@ -109,40 +109,24 @@ public class CSVController {
                 .body(file);
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes = "multipart/form-data")
-    public void GetFile(@RequestParam("file") MultipartFile file) throws SQLException {
-        System.out.println(file.getSize());
-        Connection c = connect();
-        Statement s = null;
-        try {
-            s = c.createStatement();
-            ResultSet result = s.executeQuery("SELECT * FROM public.\"esri\"");
-            System.out.println(getResults(result, "%-21s"));
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName()+": "+e.getMessage());
-        } finally {
-            s.close();
-            c.close();
-        }
-    }
 
-    //Formats results of queries
-    private String getResults(ResultSet resultSet, String format) throws SQLException {
-        StringBuilder results = new StringBuilder();
-        ResultSetMetaData metaData = resultSet.getMetaData();
-
-        for (int i = 0; i < metaData.getColumnCount(); i++) {
-            results.append(String.format(format,metaData.getColumnName(i+1)));
-        }
-
-        while (resultSet.next()) {
-            for (int i = 0; i < metaData.getColumnCount(); i++) {
-                results.append(String.format(format,resultSet.getString(i+1)));
-            }
-        }
-
-        return results.toString();
-    }
+//    //Formats results of queries
+//    private String getResults(ResultSet resultSet, String format) throws SQLException {
+//        StringBuilder results = new StringBuilder();
+//        ResultSetMetaData metaData = resultSet.getMetaData();
+//
+//        for (int i = 0; i < metaData.getColumnCount(); i++) {
+//            results.append(String.format(format,metaData.getColumnName(i+1)));
+//        }
+//
+//        while (resultSet.next()) {
+//            for (int i = 0; i < metaData.getColumnCount(); i++) {
+//                results.append(String.format(format,resultSet.getString(i+1)));
+//            }
+//        }
+//
+//        return results.toString();
+//    }
 
 
 }
