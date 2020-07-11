@@ -37,7 +37,7 @@ export const Dragndrop: React.FC<UploadFile> = ({ files, onDrop}) => {
         getInputProps,
         isDragActive,
     } = useDropzone({
-        accept: 'text/csv, application/json, .xls, .xlsx, ',
+        accept: 'text/csv, application/json',
         onDrop: onDrop
     });
 
