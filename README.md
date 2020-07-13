@@ -54,5 +54,5 @@ Database/API\
 	Brandon Eldrige\
 	Rigoberto Gonzalez\
 BYM Model Functionality\
-	Jacob John Nona\
+	Jacob John Nona
 
