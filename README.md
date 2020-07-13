@@ -51,7 +51,7 @@ After successfully opening the application, proceed to the drag and drop cell an
 	Daniel Antonelli\
 Database/API\
 	Cameron Warren\
-	Brandon Eldrige\
+	Brandon Aldridge\
 	Rigoberto Gonzalez\
 BYM Model Functionality\
 	Jacob John Nona
