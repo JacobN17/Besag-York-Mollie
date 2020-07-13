@@ -25,7 +25,23 @@ pip install pystan
 ```
 
 Node.js
+The initialize command will download a package.json file to include all of the necessary dependencies 
 ```
 npm init
 ```
-The initialize command will download a package.json file to include all of the necessary dependencies 
+
+### Installing
+
+A step by step series of examples that tell you how to get a development env running
+
+Simply download the zip file from this repo and run the application. From there, have a dataset ready, such as a .csv file, and open the application
+
+```
+Picture
+```
+
+After successfully opening the application, proceed to the drag and drop cell and upload the desired dataset.
+
+```
+Screen Shot 2020-07-13 at 3.42.43 PM.png
+```
