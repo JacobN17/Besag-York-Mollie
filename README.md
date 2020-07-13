@@ -44,3 +44,15 @@ After successfully opening the application, proceed to the drag and drop cell an
 
 ![Upload Button]
 (docs/Screen Shot 2020-07-13 at 3.42.43 PM.png)
+
+## Authors
+ UI/Design\
+	Aaron Yanes\
+	Daniel Antonelli\
+Database/API\
+	Cameron Warren\
+	Brandon Eldrige\
+	Rigoberto Gonzalez\
+BYM Model Functionality\
+	Jacob John Nona\
+
