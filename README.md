@@ -43,4 +43,4 @@ Picture
 After successfully opening the application, proceed to the drag and drop cell and upload the desired dataset.
 
 ![Upload Button]
-(https://github.com/JacobN17/Besag-York-Mollie/blob/jacob/docs/Screen%20Shot%202020-07-13%20at%203.42.43%20PM.png)
+(docs/Screen Shot 2020-07-13 at 3.42.43 PM.png)
