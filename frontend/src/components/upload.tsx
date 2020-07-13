@@ -37,7 +37,7 @@ function SubmitForm() {
     if (file.files != null) {
         const formData = new FormData();
         formData.append("file", file.files[0]);
-        axios.post("http://localhost:8080/", formData, {
+        axios.post("http://localhost:8080/fileupload", formData, {
             headers: {'Content-Type': 'multipart/form-data'}
         })
             .then(response => {

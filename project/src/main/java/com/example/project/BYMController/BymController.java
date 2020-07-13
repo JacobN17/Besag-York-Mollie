@@ -1,9 +1,10 @@
 package com.example.project.BYMController;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.Connection;
@@ -12,53 +13,55 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Map;
 
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("*")
 @Controller
 @RequestMapping("/api/BYM")
+
 public class BymController {
 
-    //Establishes connection to MYSQLdatabase
-    private Connection mySQlconnect() {
-        Connection c = null;
-        Statement stmt = null;
-        try {
-            Class.forName("org.mysql.Driver");
-            c = DriverManager
-                    .getConnection("jdbc:mysql://localhost:3306/example",
-                            "root", "password");
-            System.out.println("Opened database successfully");
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-        }
-        return c;
-    }
+//    //Establishes connection to MYSQLdatabase
+//    private Connection mySQlconnect() {
+//        Connection c = null;
+//        Statement stmt = null;
+//        try {
+//            Class.forName("org.mysql.Driver");
+//            c = DriverManager
+//                    .getConnection("jdbc:mysql://localhost:3306/example",
+//                            "root", "password");
+//            System.out.println("Opened database successfully");
+//        } catch (Exception e) {
+//            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+//        }
+//        return c;
+//    }
 
     //Establishes connection to database
     private Connection connect() {
-        Connection c = null;
+        Connection cO = null;
         Statement stmt = null;
         try {
             Class.forName("org.postgresql.Driver");
 //            Class.forName("com.sap.db.jdbc.Driver");
-            c = DriverManager
+            cO = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/esri",
                             "postgres", "Iamrigo27");
             System.out.println("Opened database successfully");
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
-        return c;
+        return cO;
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes = "multipart/form-data")
+//    @RequestMapping(method = RequestMethod.POST, consumes = "multipart/form-data")
+    @PostMapping(value = "/fileupload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public void GetForm(@RequestParam Map<String, Float> params) throws SQLException {
-        System.out.println("d: " + params.get("data") + " " + "dv: " + params.get("dataValues") + " " +
+        System.out.println("d: " + params.get("dataw") + " " + "dv: " + params.get("datavalues") + " " +
                 "m: " + params.get("mean") + " " + "sd: " + params.get("sd"));
-        Connection c = mySQlconnect();
+        Connection c = connect();
         Statement s = null;
         try {
             s = c.createStatement();
-            s.executeQuery("INSERT INTO example.BYM (data,values,mean,sd) VALUES ('csv','12232231','12.23','122');");
+            s.executeUpdate("INSERT INTO BYM (dataw,datavalues,mean,sd) VALUES ('13','1222332231','122433','12232');");
 
         } catch (Exception e) {
             System.err.println(e.getClass().getName()+": "+e.getMessage());

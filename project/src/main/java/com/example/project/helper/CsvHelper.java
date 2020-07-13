@@ -12,7 +12,7 @@ import java.util.List;
 public class CsvHelper {
 
     public static String TYPE = "text/csv";
-    static String[] HEADERS = {"Id", "firstname", "lastname", "age"};
+    static String[] HEADER = {"id", "firstname", "lastname", "age"};
 
     public static boolean hasCSVFormat(MultipartFile file){
         if (!TYPE.equals(file.getContentType())) {
@@ -62,7 +62,6 @@ public class CsvHelper {
 
                 csvPrinter.printRecord(data);
             }
-
             csvPrinter.flush();
             return new ByteArrayInputStream(out.toByteArray());
         } catch (IOException e) {

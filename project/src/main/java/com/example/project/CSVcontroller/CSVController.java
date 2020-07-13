@@ -4,7 +4,6 @@ import com.example.project.helper.CsvHelper;
 import com.example.project.message.ResponseMessage;
 import com.example.project.model.Model;
 import com.example.project.service.CSVService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -15,16 +14,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import java.util.List;
 
-//@CrossOrigin("http://localhost:8080")
+@CrossOrigin("http://localhost:8080")
 @Controller
 @RequestMapping("/api/csv")
 public class CSVController {
 
-    @Autowired
+    final
     CSVService fileService;
+
+    public CSVController(CSVService fileService) {
+        this.fileService = fileService;
+    }
 
 
     //Establishes connection to MYSQLdatabase
@@ -49,7 +54,6 @@ public class CSVController {
         Statement stmt = null;
         try {
             Class.forName("org.postgresql.Driver");
-//            Class.forName("com.sap.db.jdbc.Driver");
             c = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/esri",
                             "postgres", "Iamrigo27");
@@ -64,7 +68,6 @@ public class CSVController {
     @PostMapping("/upload")
     public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file")MultipartFile file){
         String message = "";
-
         if (CsvHelper.hasCSVFormat(file)) {
             try {
                 fileService.save(file);
@@ -76,26 +79,25 @@ public class CSVController {
                 return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
             }
         }
-
         message = "Please upload a csv file!";
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message));
-
     }
 
-    @GetMapping("/model")
-    public ResponseEntity<List<Model>> getAllTutorials() {
+    @RequestMapping(params = "POST")
+    @GetMapping(value = "/model")
+    public ResponseEntity<List<Model>> getAllModel() {
         try {
             List<Model> model = fileService.getAllTutorials();
 
             if (model.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-
             return new ResponseEntity<>(model, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 
 
     @GetMapping("/download")
