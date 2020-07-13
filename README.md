@@ -25,8 +25,7 @@ pip install pystan
 ```
 
 Node.js
--	npm init
-The initialize command will download a package.json file to include all of the necessary dependencies 
 ```
 npm init
 ```
+The initialize command will download a package.json file to include all of the necessary dependencies 
