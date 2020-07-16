@@ -33,8 +33,8 @@ public class CsvHelper {
             for (CSVRecord csvRecord : csvRecords) {
                 Model model = new Model(
                         Long.parseLong(csvRecord.get("Id")),
-                        Long.parseLong(csvRecord.get("Latitude")),
-                        Long.parseLong(csvRecord.get("Longitude"))
+                        Float.parseFloat(csvRecord.get("Latitude")),
+                        Float.parseFloat(csvRecord.get("Longitude"))
                 );
                 exampleModel.add(model);
             }
