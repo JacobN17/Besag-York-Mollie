@@ -33,8 +33,8 @@ public class CsvHelper {
             for (CSVRecord csvRecord : csvRecords) {
                 Model model = new Model(
                         Long.parseLong(csvRecord.get("Id")),
-                        csvRecord.get("Latitude"),
-                        csvRecord.get("Longitude")
+                        Long.parseLong(csvRecord.get("Latitude")),
+                        Long.parseLong(csvRecord.get("Longitude"))
                 );
                 exampleModel.add(model);
             }
@@ -53,8 +53,8 @@ public class CsvHelper {
             for (Model model : models) {
                 List<String> data = Arrays.asList(
                         String.valueOf(model.getId()),
-                        model.getLatitude(),
-                        model.getLongitude()
+                        String.valueOf(model.getLatitude()),
+                        String.valueOf(model.getLongitude())
                 );
 
                 csvPrinter.printRecord(data);

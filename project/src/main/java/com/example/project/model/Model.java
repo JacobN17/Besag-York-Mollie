@@ -16,17 +16,17 @@ public class Model {
     private long id;
 
     @Column(name = "Latitude")
-    private String Latitude;
+    private float Latitude;
 
     @Column(name = "Longitude")
-    private String Longitude;
+    private float Longitude;
 
 
     public Model() {
 
     }
 
-    public Model(long id, String Latitude, String Longitude) {
+    public Model(long id, float Latitude, float Longitude) {
         this.id=id;
         this.Latitude=Latitude;
         this.Longitude=Longitude;
@@ -41,19 +41,19 @@ public class Model {
         this.id = id;
     }
 
-    public String getLatitude() {
+    public float getLatitude() {
         return Latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(float latitude) {
         Latitude = latitude;
     }
 
-    public String getLongitude() {
+    public float getLongitude() {
         return Longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(float longitude) {
         Longitude = longitude;
     }
 
@@ -61,8 +61,8 @@ public class Model {
     public String toString() {
         return "Model{" +
                 "id=" + id +
-                ", Latitude='" + Latitude + '\'' +
-                ", Longitude='" + Longitude + '\'' +
+                ", Latitude=" + Latitude +
+                ", Longitude=" + Longitude +
                 '}';
     }
 }
