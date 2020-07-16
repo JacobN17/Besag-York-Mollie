@@ -9,10 +9,10 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 The following are software packages/dependencies needed to fully generate the interactive UI and BYM Model itself
 
-Python</br>
+**Python**</br>
 
 	pip - Package manager for installing software packages for Python
-	pystan - Used to interface between Stan and Python to 
+	pystan - The interface to Stan
 	arviz - Used for exploratory analysis of Bayesian models 
 	numpy - Library for high level mathematics on arrays and support for matrices
 	pandas - Library for data manipulation and analysis
@@ -24,7 +24,7 @@ The software packages can all be downloaded locally using the package manager pi
 pip install pystan
 ```
 
-Node.js
+**Node.js**\
 The initialize command will download a package.json file to include all of the necessary dependencies 
 ```
 npm init
@@ -43,10 +43,10 @@ After successfully opening the application, proceed to the drag and drop cell an
 <img src= "docs/Screen%20Shot%202020-07-13%20at%203.42.43%20PM.png" width= "235">
 
 ## Authors
- **UI/Design**\
+ **UI & Design**\
 	Aaron Yanes\
 	Daniel Antonelli\
-**Database/API**\
+**Database & API**\
 	Cameron Warren\
 	Brandon Aldridge\
 	Rigoberto Gonzalez\
