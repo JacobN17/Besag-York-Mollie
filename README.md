@@ -1,6 +1,6 @@
 # Besag-York-Mollie
 
-The BYM Model is a lognormal Poisson distribution developed for disease-risk mapping which includes both an Integrated Conditional Auto-Regression Model (ICAR) component for spatial smoothing and an ordinary random effects component for non-spatial heterogeneity. It is used to project statistical findings in order to analyze the degree of risk and discern details about the provided dataset. 
+The Besag-York-Mollie (BYM) Model is a lognormal Poisson distribution developed for disease-risk mapping which includes both an Integrated Conditional Auto-Regression Model (ICAR) component for spatial smoothing and an ordinary random effects component for non-spatial heterogeneity. It is used to project statistical findings in order to analyze the degree of risk and discern details about the provided dataset. 
 
 ## Getting Started
 
@@ -9,10 +9,10 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 The following are software packages/dependencies needed to fully generate the interactive UI and BYM Model itself
 
-**Python**</br>
+**Python**
 
 	pip - Package manager for installing software packages for Python
-	pystan - The interface to Stan
+	pystan - Used to interface to Stan
 	arviz - Used for exploratory analysis of Bayesian models 
 	numpy - Library for high level mathematics on arrays and support for matrices
 	pandas - Library for data manipulation and analysis
@@ -30,7 +30,7 @@ The initialize command will download a package.json file to include all of the n
 npm init
 ```
 
-### Installing
+## Installing
 
 A step by step series of examples that tell you how to get a development env running
 
