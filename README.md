@@ -36,23 +36,20 @@ A step by step series of examples that tell you how to get a development env run
 
 Simply download the zip file from this repo and run the application. From there, have a dataset ready, such as a .csv file, and open the application
 
-```
-Picture
-```
 
 After successfully opening the application, proceed to the drag and drop cell and upload the desired dataset.
 
-![Upload Button]
-(docs/Screen%20Shot%202020-07-13%20at%203.42.43%20PM.png)
+
+<img src= "docs/Screen%20Shot%202020-07-13%20at%203.42.43%20PM.png" width= "235">
 
 ## Authors
- UI/Design\
+ **UI/Design**\
 	Aaron Yanes\
 	Daniel Antonelli\
-Database/API\
+**Database/API**\
 	Cameron Warren\
 	Brandon Aldridge\
 	Rigoberto Gonzalez\
-BYM Model Functionality\
+**BYM Model Functionality**\
 	Jacob John Nona
 
