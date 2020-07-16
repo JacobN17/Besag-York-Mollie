@@ -19,12 +19,12 @@ The following are software packages/dependencies needed to fully generate the in
 	pathlib - Used for object-orientated filepaths
 	random - Used for generating pseudo-random numbers
 
-The software packages can all be downloaded locally using the package manager pip within a command line prompt.
+The software packages can all be downloaded locally using the package manager pip within a command line prompt such as the following.
 ```
 pip install pystan
 ```
 
-**Node.js**\
+**Node**\
 The initialize command will download a package.json file to include all of the necessary dependencies 
 ```
 npm init
@@ -36,11 +36,15 @@ A step by step series of examples that tell you how to get a development env run
 
 Simply download the zip file from this repo and run the application. From there, have a dataset ready, such as a .csv file, and open the application
 
+<img src ="docs/Screen%20Shot%202020-07-16%20at%201.09.45%20AM.png" width = "500">
 
-After successfully opening the application, proceed to the drag and drop cell and upload the desired dataset.
 
+After opening the application, click the upload button and proceed with uploading the desired dataset
+<img src= "docs/Screen%20Shot%202020-07-13%20at%203.42.43%20PM.png" width= "400">
 
-<img src= "docs/Screen%20Shot%202020-07-13%20at%203.42.43%20PM.png" width= "235">
+A set of coordinates will then be displayed, giving the results of the model generation such as the following
+<img src= "docs/Screen%20Shot%202020-07-16%20at%201.10.16%20AM.png" width= "500">
+
 
 ## Authors
  **UI & Design**
