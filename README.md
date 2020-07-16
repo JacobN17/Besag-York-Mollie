@@ -7,7 +7,12 @@ The Besag-York-Mollie (BYM) Model is a lognormal Poisson distribution developed 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
+**NOTE**: ```npm``` ```node``` and ```pip``` will be needed for the installation portion
+
 The following are software packages/dependencies needed to fully generate the interactive UI and BYM Model itself
+
+
+### Installation
 
 **Python**
 
@@ -30,7 +35,7 @@ The initialize command will download a package.json file to include all of the n
 npm init
 ```
 
-## Installation
+## Usage
 
 A step by step series of examples that tell you how to get a development env running
 
@@ -46,7 +51,7 @@ A set of coordinates will then be displayed, giving the results of the model gen
 <img src= "docs/Screen%20Shot%202020-07-16%20at%201.10.16%20AM.png" width= "500">
 
 
-## Authors
+## Authors & Acknowledgement
  **UI & Design**
  - Aaron Yanes
  - Daniel Antonelli
