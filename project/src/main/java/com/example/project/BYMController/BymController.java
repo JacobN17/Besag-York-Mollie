@@ -19,21 +19,21 @@ import java.util.Map;
 
 public class BymController {
 
-//    //Establishes connection to MYSQLdatabase
-//    private Connection mySQlconnect() {
-//        Connection c = null;
-//        Statement stmt = null;
-//        try {
-//            Class.forName("org.mysql.Driver");
-//            c = DriverManager
-//                    .getConnection("jdbc:mysql://localhost:3306/example",
-//                            "root", "password");
-//            System.out.println("Opened database successfully");
-//        } catch (Exception e) {
-//            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-//        }
-//        return c;
-//    }
+    //Establishes connection to MYSQLdatabase
+    private Connection mySQlconnect() {
+        Connection c = null;
+        Statement stmt = null;
+        try {
+            Class.forName("org.mysql.Driver");
+            c = DriverManager
+                    .getConnection("jdbc:mysql://localhost:3306/example",
+                            "root", "password");
+            System.out.println("Opened database successfully");
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+        return c;
+    }
 
     //Establishes connection to database
     private Connection connect() {

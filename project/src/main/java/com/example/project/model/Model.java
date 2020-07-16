@@ -8,31 +8,29 @@ import javax.persistence.Table;
 
 @Entity
 //@EnableJpaRepositories(basePackages = { "com.example.project.model" })
-@Table(name = "csvuser")
+@Table(name = "bymModel")
 public class Model {
 
     @Id
     @Column(name = "id")
     private long id;
-//
-    @Column(name = "firstname")
-    private String firstname;
-//
-    @Column(name = "lastname")
-    private String lastname;
-//
-    @Column(name = "age")
-    private String age;
+
+    @Column(name = "Latitude")
+    private String Latitude;
+
+    @Column(name = "Longitude")
+    private String Longitude;
+
 
     public Model() {
 
     }
 
-    public Model(long id, String firstname, String lastname, String age) {
+    public Model(long id, String Latitude, String Longitude) {
         this.id=id;
-        this.firstname=firstname;
-        this.lastname=lastname;
-        this.age=age;
+        this.Latitude=Latitude;
+        this.Longitude=Longitude;
+
     }
 
     public long getId() {
@@ -43,37 +41,28 @@ public class Model {
         this.id = id;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getLatitude() {
+        return Latitude;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setLatitude(String latitude) {
+        Latitude = latitude;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLongitude() {
+        return Longitude;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
+    public void setLongitude(String longitude) {
+        Longitude = longitude;
     }
 
     @Override
     public String toString() {
         return "Model{" +
                 "id=" + id +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", age='" + age + '\'' +
+                ", Latitude='" + Latitude + '\'' +
+                ", Longitude='" + Longitude + '\'' +
                 '}';
     }
 }

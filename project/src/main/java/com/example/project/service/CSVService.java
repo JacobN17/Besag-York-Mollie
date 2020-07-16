@@ -28,7 +28,7 @@ public class CSVService {
     public ByteArrayInputStream load() {
         List<Model> models = repository.findAll();
 
-        ByteArrayInputStream in = CsvHelper.usermodelToCSV(models);
+        ByteArrayInputStream in = CsvHelper.bymModelToCSV(models);
         return in;
     }
 

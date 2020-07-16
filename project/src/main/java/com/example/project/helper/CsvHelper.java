@@ -12,7 +12,7 @@ import java.util.List;
 public class CsvHelper {
 
     public static String TYPE = "text/csv";
-    static String[] HEADER = {"id", "firstname", "lastname", "age"};
+    static String[] HEADER = {"id", "Latitude", "Longitude"};
 
     public static boolean hasCSVFormat(MultipartFile file){
         if (!TYPE.equals(file.getContentType())) {
@@ -33,11 +33,9 @@ public class CsvHelper {
             for (CSVRecord csvRecord : csvRecords) {
                 Model model = new Model(
                         Long.parseLong(csvRecord.get("Id")),
-                        csvRecord.get("firstname"),
-                        csvRecord.get("lastname"),
-                        csvRecord.get("age")
+                        csvRecord.get("Latitude"),
+                        csvRecord.get("Longitude")
                 );
-
                 exampleModel.add(model);
             }
 
@@ -47,7 +45,7 @@ public class CsvHelper {
         }
     }
 
-    public static ByteArrayInputStream usermodelToCSV(List<Model> models) {
+    public static ByteArrayInputStream bymModelToCSV(List<Model> models) {
         final CSVFormat format = CSVFormat.DEFAULT.withQuoteMode(QuoteMode.MINIMAL);
 
         try (ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -55,9 +53,8 @@ public class CsvHelper {
             for (Model model : models) {
                 List<String> data = Arrays.asList(
                         String.valueOf(model.getId()),
-                        model.getFirstname(),
-                        model.getLastname(),
-                        model.getAge()
+                        model.getLatitude(),
+                        model.getLongitude()
                 );
 
                 csvPrinter.printRecord(data);
