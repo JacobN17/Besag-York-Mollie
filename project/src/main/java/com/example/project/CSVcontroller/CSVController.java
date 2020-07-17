@@ -4,6 +4,7 @@ import com.example.project.helper.CsvHelper;
 import com.example.project.message.ResponseMessage;
 import com.example.project.model.Model;
 import com.example.project.service.CSVService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -24,12 +25,15 @@ import java.util.List;
 @RequestMapping("/api/csv")
 public class CSVController {
 
-    final
-    CSVService fileService;
+//    final
 
-    public CSVController(CSVService fileService) {
-        this.fileService = fileService;
-    }
+    @Autowired
+    private CSVService fileService;
+
+
+//    public CSVController( CSVService fileService) {
+//        this.fileService = fileService;
+//    }
 
 
     //Establishes connection to MYSQLdatabase
@@ -65,8 +69,9 @@ public class CSVController {
     }
 
 
-    @PostMapping("/upload")
-    public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file")MultipartFile file){
+//    @PostMapping("/upload")
+    @RequestMapping(value = "/upload", headers=("content-type=multipart/*") ,method = RequestMethod.POST)
+    public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file")MultipartFile file) throws Exception{
         String message = "";
         if (CsvHelper.hasCSVFormat(file)) {
             try {
@@ -85,9 +90,9 @@ public class CSVController {
 
     @RequestMapping(params = "POST")
     @GetMapping(value = "/model")
-    public ResponseEntity<List<Model>> getAllModel() {
+    public ResponseEntity<List<Model>> getAllModels() {
         try {
-            List<Model> model = fileService.getAllTutorials();
+            List<Model> model = fileService.getAllModels();
 
             if (model.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);

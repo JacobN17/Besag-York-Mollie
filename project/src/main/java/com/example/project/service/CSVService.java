@@ -3,6 +3,7 @@ package com.example.project.service;
 import com.example.project.helper.CsvHelper;
 import com.example.project.model.Model;
 import com.example.project.repository.ModelRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,8 +14,9 @@ import java.util.List;
 
 @Service
 public class CSVService {
+
     @Autowired
-    ModelRepository repository;
+    private ModelRepository repository;
 
     public void save(MultipartFile file) {
         try {
@@ -32,7 +34,7 @@ public class CSVService {
         return in;
     }
 
-    public List<Model> getAllTutorials() {
+    public List<Model> getAllModels() {
         return repository.findAll();
     }
 

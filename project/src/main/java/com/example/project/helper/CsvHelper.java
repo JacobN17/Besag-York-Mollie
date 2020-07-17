@@ -24,7 +24,8 @@ public class CsvHelper {
     public static List<Model> csvtoModel(InputStream is) {
         try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
              CSVParser csvParser = new CSVParser(fileReader,
-                     CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
+                     CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim()))
+            {
 
             List<Model> exampleModel = new ArrayList<Model>();
 
@@ -32,13 +33,13 @@ public class CsvHelper {
 
             for (CSVRecord csvRecord : csvRecords) {
                 Model model = new Model(
-                        Long.parseLong(csvRecord.get("Id")),
-                        Float.parseFloat(csvRecord.get("Latitude")),
-                        Float.parseFloat(csvRecord.get("Longitude"))
+                        Long.parseLong(csvRecord.get("id")),
+                        csvRecord.get("Latitude"),
+                        csvRecord.get("Longitude")
                 );
+
                 exampleModel.add(model);
             }
-
             return exampleModel;
         } catch (IOException e) {
             throw new RuntimeException("fail to parse CSV file: " + e.getMessage());
@@ -53,8 +54,8 @@ public class CsvHelper {
             for (Model model : models) {
                 List<String> data = Arrays.asList(
                         String.valueOf(model.getId()),
-                        String.valueOf(model.getLatitude()),
-                        String.valueOf(model.getLongitude())
+                        model.getLatitude(),
+                        model.getLongitude()
                 );
 
                 csvPrinter.printRecord(data);
