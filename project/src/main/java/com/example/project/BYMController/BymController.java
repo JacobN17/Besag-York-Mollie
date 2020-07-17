@@ -13,9 +13,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Map;
 
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:3000")
 @Controller
-@RequestMapping("/api/BYM")
+@RequestMapping("/api/bym")
 
 public class BymController {
 
@@ -57,11 +57,12 @@ public class BymController {
     public void GetForm(@RequestParam Map<String, Float> params) throws SQLException {
         System.out.println("d: " + params.get("dataw") + " " + "dv: " + params.get("datavalues") + " " +
                 "m: " + params.get("mean") + " " + "sd: " + params.get("sd"));
-        Connection c = connect();
+        Connection c = mySQlconnect();
         Statement s = null;
         try {
             s = c.createStatement();
-            s.executeUpdate("INSERT INTO BYM (dataw,datavalues,mean,sd) VALUES ('13','1222332231','122433','12232');");
+            s.executeUpdate("INSERT INTO BYM (dataw,datavalues,mean,sd) VALUES (" + params.get("data") + "," +
+                    params.get("dataValues") + "," + params.get("mean") + "," + params.get("sd") + ");");
 
         } catch (Exception e) {
             System.err.println(e.getClass().getName()+": "+e.getMessage());

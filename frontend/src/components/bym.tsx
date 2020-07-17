@@ -32,7 +32,7 @@ function SubmitForm() {
     formData.set("dataValues", (document.getElementById("dataValues") as HTMLInputElement).value);
     formData.set("mean", (document.getElementById("mean") as HTMLInputElement).value);
     formData.set("sd", (document.getElementById("sd") as HTMLInputElement).value);
-    axios.post("http://localhost:8080/", formData, {
+    axios.post("http://localhost:8080/api/bym", formData, {
         headers: {'Content-Type': 'multipart/form-data'}
     })
         .then(response => {
