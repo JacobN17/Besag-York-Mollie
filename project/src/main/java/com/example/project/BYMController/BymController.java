@@ -26,7 +26,7 @@ public class BymController {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             c = DriverManager
-                    .getConnection("jdbc:mysql://localhost:3306/example",
+                    .getConnection("jdbc:mysql://localhost:3306/example?useLegacyDatetimeCode=false&serverTimezone=PST",
                             "root", "password");
             System.out.println("Opened database successfully");
         } catch (Exception e) {
@@ -53,7 +53,7 @@ public class BymController {
     }
 
 //    @RequestMapping(method = RequestMethod.POST, consumes = "multipart/form-data")
-    @PostMapping(value = "/fileupload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public void GetForm(@RequestParam Map<String, Float> params) throws SQLException {
         System.out.println("d: " + params.get("dataw") + " " + "dv: " + params.get("datavalues") + " " +
                 "m: " + params.get("mean") + " " + "sd: " + params.get("sd"));
