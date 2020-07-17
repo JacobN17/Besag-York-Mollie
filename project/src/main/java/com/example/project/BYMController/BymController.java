@@ -24,7 +24,7 @@ public class BymController {
         Connection c = null;
         Statement stmt = null;
         try {
-            Class.forName("org.mysql.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             c = DriverManager
                     .getConnection("jdbc:mysql://localhost:3306/example",
                             "root", "password");

@@ -69,8 +69,9 @@ public class CSVController {
     }
 
 
-//    @PostMapping("/upload")
-    @RequestMapping(value = "/upload", headers=("content-type=multipart/*") ,method = RequestMethod.POST)
+
+//    @RequestMapping(value = "/upload", headers=("content-type=multipart/*") ,method = RequestMethod.POST)
+    @PostMapping(value = "/upload", consumes = "multipart/form-data")
     public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file")MultipartFile file) throws Exception{
         String message = "";
         if (CsvHelper.hasCSVFormat(file)) {
