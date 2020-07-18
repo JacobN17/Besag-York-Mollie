@@ -57,7 +57,7 @@ public class BymController {
     public void GetForm(@RequestParam Map<String, Float> params) throws SQLException {
         System.out.println("d: " + params.get("dataw") + " " + "dv: " + params.get("datavalues") + " " +
                 "m: " + params.get("mean") + " " + "sd: " + params.get("sd"));
-        Connection c = mySQlconnect();
+        Connection c = connect();
         Statement s = null;
         try {
             s = c.createStatement();
@@ -74,47 +74,3 @@ public class BymController {
 
 
 }
-
-
-
-
-
-
-
-
-
-//        @RequestMapping(method = RequestMethod.POST, consumes = "multipart/form-data")
-//    public void GetFile(@RequestParam("file") MultipartFile file) throws SQLException {
-//        System.out.println(file.getSize());
-//        Connection c = mySQlconnect();
-//        Statement s = null;
-//        try {
-//            s = c.createStatement();
-//            ResultSet result = s.executeQuery("SELECT * FROM public.\"example\"");
-//            System.out.println(getResults(result, "%-21s"));
-//        } catch (Exception e) {
-//            System.err.println(e.getClass().getName()+": "+e.getMessage());
-//        } finally {
-//            s.close();
-//            c.close();
-//        }
-//    }
-
-//    //Formats results of queries
-//    private String getResults(ResultSet resultSet, String format) throws SQLException {
-//        StringBuilder results = new StringBuilder();
-//        ResultSetMetaData metaData = resultSet.getMetaData();
-//
-//        for (int i = 0; i < metaData.getColumnCount(); i++) {
-//            results.append(String.format(format,metaData.getColumnName(i+1)));
-//        }
-//
-//        while (resultSet.next()) {
-//            for (int i = 0; i < metaData.getColumnCount(); i++) {
-//                results.append(String.format(format,resultSet.getString(i+1)));
-//            }
-//        }
-//
-//        return results.toString();
-//    }
-//}

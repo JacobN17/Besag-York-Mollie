@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 //@EnableJpaRepositories(basePackages = { "com.example.project.model" })
-@Table(name = "bymModel")
+@Table(name = "bym_model")
 public class Model {
 
     @Id

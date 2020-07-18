@@ -1,6 +1,5 @@
 package com.example.project.CSVcontroller;
 
-import com.example.project.helper.CsvHelper;
 import com.example.project.message.ResponseMessage;
 import com.example.project.model.Model;
 import com.example.project.service.CSVService;
@@ -20,7 +19,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.List;
 
-@CrossOrigin("http://localhost:8080")
+@CrossOrigin("http://localhost:3000")
 @Controller
 @RequestMapping("/api/csv")
 public class CSVController {
@@ -69,24 +68,28 @@ public class CSVController {
     }
 
 
-
-//    @RequestMapping(value = "/upload", headers=("content-type=multipart/*") ,method = RequestMethod.POST)
-    @PostMapping(value = "/upload", consumes = "multipart/form-data")
-    public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file")MultipartFile file) throws Exception{
+    //    @RequestMapping(value = "/upload", headers=("content-type=multipart/*") ,method = RequestMethod.POST)
+    @PostMapping("/upload")
+    public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
         String message = "";
-        if (CsvHelper.hasCSVFormat(file)) {
+        System.out.println("received");
+//        if (CsvHelper.hasCSVFormat(file)) {
             try {
+                System.out.println("trying");
                 fileService.save(file);
-
+//
                 message = "Uploaded the file successfully: " + file.getOriginalFilename();
+//                System.out.println("tried");
                 return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
             } catch (Exception e) {
+                System.err.println(e.getClass().getName()+": "+e.getMessage());
                 message = "Could not upload the file: " + file.getOriginalFilename() + "!";
                 return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
             }
-        }
-        message = "Please upload a csv file!";
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message));
+//        }
+//        message = "Please upload a csv file!";
+//        System.out.println("done");
+//        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message));
     }
 
     @RequestMapping(params = "POST")
@@ -105,10 +108,9 @@ public class CSVController {
     }
 
 
-
     @GetMapping("/download")
     public ResponseEntity<Resource> getFile() {
-        String filename = "model.csv";
+        String filename = "bymModel.csv";
         InputStreamResource file = new InputStreamResource(fileService.load());
 
         return ResponseEntity.ok()
