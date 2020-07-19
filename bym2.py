@@ -14,14 +14,14 @@ import random as r
 
 def generate_model(data_file):
     df = pd.read_csv(data_file,
-                     usecols=["latitude", "longitude"])  # defining specific columns for spatial points, size, and edges
-    N = len(df.values)  # size of actual csv file
-    edges = N  # arbitrary number of edges
-    K = 2  # total number of data entries
+                     usecols=["latitude", "longitude"])  # reads csv file and scans for lat & lon columns
+    N = len(df.values)  # number of latitude || longitude coordinates
+    edges = N  # number of edges, also equal to N of dataset
+    K = 2  # represents the coordinate pairs
     scaling_factor = 2.0  # factor of two for variance consistency
-    node1 = []
+    node1 = []  # list of indices
     node2 = []
-    y1 = []  # number of variables involved (coordinates) ranging from 1-2 in random sequences
+    y1 = []  # number of outcomes appended using random
     for i in range(N):
         rand = r.randint(1, 2)
         y1.append(rand)
@@ -29,7 +29,7 @@ def generate_model(data_file):
         node2.append(rand)
     design_matrix = []
     for val in df.values:
-        design_matrix.append([val[0], val[1]])
+        design_matrix.append([val[0], val[1]])  # matrix with coordinate pair as each array listing
 
     # stan code block for the data and parameters
     stan_code = """
