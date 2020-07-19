@@ -9,16 +9,14 @@ import pystan
 import arviz as ar
 import numpy as np
 import pandas as pd
-from pathlib import Path
 import random as r
 
 
-def generate_model():
-    # path definition for dataset
-    path = Path("/Users/jacob/Esri/Besag-York-Mollie/datasets/mod-starbucks.csv")
-    df = pd.read_csv(path,
+def generate_model(data_file):
+    df = pd.read_csv(data_file,
                      usecols=["latitude", "longitude"])  # defining specific columns for spatial points, size, and edges
     N = len(df.values)  # size of actual csv file
+    edges = N  # arbitrary number of edges
     K = 2  # total number of data entries
     scaling_factor = 2.0  # factor of two for variance consistency
     node1 = []
@@ -32,7 +30,6 @@ def generate_model():
     design_matrix = []
     for val in df.values:
         design_matrix.append([val[0], val[1]])
-    edges = len(design_matrix)  # arbitrary number of edges
 
     # stan code block for the data and parameters
     stan_code = """
@@ -95,6 +92,3 @@ def generate_model():
     sm = pystan.StanModel(model_code=stan_code)
     fit = sm.sampling(data=bym_data, iter=1000, chains=4)
     ar.plot_density(fit, var_names=['beta0', 'betas', 'logit_rho', 'sigma', 'theta'])
-
-
-generate_model()
