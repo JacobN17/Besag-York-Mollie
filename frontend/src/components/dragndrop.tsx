@@ -61,13 +61,15 @@ export const Dragndrop: React.FC<UploadFile> = ({ files, onDrop}) => {
 
     return (
         <div className="container">
+            <form className="form" action="/upload" encType="multipart/form-data" method="POST">
             <div {...getRootProps({ style })}>
-                <input {...getInputProps()} id="dropped-file"/>
+                <input {...getInputProps()} id="dropped-file" type="file"  name="file"/>
                 <p>Drag 'n' drop some files here, or click to select files</p>
             </div>
             <aside className="display-uploaded-file" >
                 <ul>{displayDroppedFile}</ul>
             </aside>
+        </form>
         </div>
     );
 }

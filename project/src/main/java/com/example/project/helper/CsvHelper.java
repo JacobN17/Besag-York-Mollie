@@ -25,7 +25,7 @@ public class CsvHelper {
         try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
              CSVParser csvParser = new CSVParser(fileReader,
                      CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim()))
-            {
+        {
 
             List<Model> exampleModel = new ArrayList<Model>();
 

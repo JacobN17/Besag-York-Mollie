@@ -1,41 +1,113 @@
 import * as React from 'react';
-import '../css/home.css';
+import {useState} from 'react';
+import {Dragndrop} from './dragndrop';
+import '../css/upload.css';
 import axios  from 'axios'
+// @ts-ignore
+import Papa, {ParseResult} from 'papaparse';
+// @ts-ignore
+import $ from 'jquery';
+// @ts-ignore
+import TableToExcel from '@linways/table-to-excel';
+import * as XLSX from 'xlsx';
 
-interface FormProps {
-    action: string
-}
+
+export const Upload = () => {
+    const [files, setFiles] = useState<File[]>([]);
+
+    const onDrop = (acceptedFiles: File[]) => {
+        acceptedFiles.map(file => (
+            file
+        ))
+        console.log('File Dropped', setFiles(acceptedFiles))
+    }
+
+    const uploadFile = () => {
+        // const uploadURL = 'http://localhost:8080/fileupload';
 
 
-function UploadFile() {
-    const file = document.getElementById("fileupload") as HTMLInputElement;
-    if (file.files != null) {
-        const formData = new FormData();
-        formData.append("file", file.files[0]);
-        axios.post("http://localhost:8080/api/csv/upload", formData, {
-            headers: {'Content-Type': 'multipart/form-data'}
-        })
-            .then(response => {
-                if (response.data != null) {
-                    alert("SUCCESS")
+        files.forEach(file => {
+            // const formData = new FormData();
+            console.log(setFiles(files))
+            // formData.append('file', file);
+
+            if (file != null) {
+                const formData = new FormData();
+                formData.append("file", file);
+                axios.post("http://localhost:8080/api/csv/upload", formData, {
+                    headers: {'Content-Type': 'multipart/form-data'}
+                })
+                    .then(response => {
+                        if (response.data != null) {
+                            alert("SUCCESS")
+                        }
+                    });
+            }
+
+
+            //==== Parse CSV File ====
+            Papa.parse(file, {
+                header: true,           // Key data by field name instead of index/position
+                dynamicTyping: true,    // Converts numeric/boolean data
+                complete: (result: any) => {
+                    console.log(result)
+                    displayParsedObject(result);
                 }
             });
+        })
     }
-}
 
-export const Upload: React.FC<FormProps> = ({ action }) => {
+    /**
+     * Generates html table from parsed csv file
+     * @param papa file object to be parsed
+     */
+    function displayParsedObject(papa: ParseResult<any>) {
+        let header = "";
+        let tbody = "";
+        for (const p in papa.meta.fields) {
+            header += "<th>" + papa.meta.fields[p] + "</th>";
+        }
+
+        for (let i = 0; i < papa.data.length; i++) {
+            let row = "";
+            for (const z in papa.data[i]) {
+                row += "<td>" + papa.data[i][z] + "</td>";
+            }
+            tbody += "<tr>" + row + "</tr>";
+        }
+
+        //build a table
+        $("output").html(
+            '<table class="table" id="csv-table"><thead>' +
+            header + "</thead><tbody>" +
+            tbody +  "</tbody></table>"
+        );
+    }
+
+    const csvFile = document.getElementById('dropped-file') as HTMLInputElement;
+    if (csvFile) {
+        csvFile.addEventListener("click", ev => {
+            $(csvFile).change(uploadFile)
+        })
+    }
+
+    //==== Export CSV to Excel ====
+    let exportBtn = document.getElementById("export-button") as HTMLButtonElement;
+    if (exportBtn) {
+        exportBtn.addEventListener("click",  ev => {
+            let csvTable = document.getElementById("csv-table") as HTMLTableElement;
+            TableToExcel.convert(csvTable);
+        })
+    }
+
     return (
-        <div className="input-container">
-            <form className="form-wrapper">
-                <button className="file-chooser-button" type="button">
-                    Choose File
-                    <input className="file-input" type="file" id="fileupload" name="file" accept={".csv"}/>
-                </button>
-
-                <button className="upload-button" type="submit" onClick={UploadFile}>
-                    Submit
-                </button>
-            </form>
+        <div>
+            <output/>
+            <button id="export-button">Export to Excel</button>
+            <Dragndrop files={files} onDrop={onDrop}/>
+            <img className="drag-icon" src="https://img.icons8.com/cotton/64/000000/upload-to-cloud--v1.png"
+                 alt="cloud-img"/>
+            <button className="upload-btn" value="Submit" onClick={() => uploadFile()}>Upload</button>
         </div>
-    )
+    );
 }

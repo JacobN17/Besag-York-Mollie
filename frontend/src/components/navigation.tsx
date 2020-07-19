@@ -17,7 +17,6 @@ export const Navigation: React.FC <{}> = () => {
                         <li><Link className="nav-link" to="/home">Home</Link></li>
                         <li><Link className="nav-link" to="/upload">Upload</Link></li>
                         <li><Link className="nav-link" to="/bym">BYM</Link></li>
-                        <li><Link className="nav-link" to="/share">Share</Link></li>
                     </ul>
                 </nav>
        </header>

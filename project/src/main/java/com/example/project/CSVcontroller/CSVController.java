@@ -74,18 +74,18 @@ public class CSVController {
         String message = "";
         System.out.println("received");
 //        if (CsvHelper.hasCSVFormat(file)) {
-            try {
-                System.out.println("trying");
-                fileService.save(file);
+        try {
+            System.out.println("trying");
+            fileService.save(file);
 //
-                message = "Uploaded the file successfully: " + file.getOriginalFilename();
+            message = "Uploaded the file successfully: " + file.getOriginalFilename();
 //                System.out.println("tried");
-                return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
-            } catch (Exception e) {
-                System.err.println(e.getClass().getName()+": "+e.getMessage());
-                message = "Could not upload the file: " + file.getOriginalFilename() + "!";
-                return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
-            }
+            return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            message = "Could not upload the file: " + file.getOriginalFilename() + "!";
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
+        }
 //        }
 //        message = "Please upload a csv file!";
 //        System.out.println("done");
