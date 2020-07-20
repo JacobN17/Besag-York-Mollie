@@ -100,7 +100,7 @@ Within the Stan code itself, the parameters block is only for declarations. The 
 **Implmenting BYM in Stan**
 - http://www.stat.columbia.edu/~gelman/research/published/bym_article_SSTEproof.pdf
 
-**Stan Documentation**
+**Stan**
 - https://mc-stan.org/users/interfaces/stan
 
 **Fitting CAR & SAR Models**
