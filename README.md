@@ -55,7 +55,7 @@ The results of the iterations will be displayed. Here is an example of how the r
 <img src ="docs/Screen%20Shot%202020-07-19%20at%2010.46.40%20PM.png">
 
 
-Now, these results represent different aspects of Bayesian statistics calculated. The model parameters that were displayed here are 
+Now, these results represent different aspects of the Besag-York-Mollie Model . The model parameters that were displayed here are 
 - beta0
 - betas
 - sigma
@@ -68,9 +68,9 @@ Within the Stan code itself, the parameters block is only for declarations. The 
 
 - The ```betas``` represent the various covariates associated with the model. Within this example, the covariates that were used were coordinate pairs of latitude and longitude, which means there's only two entries. Upon closer inspection, it can be seen that the betas slightly differ since there are multiple coordinate pairs that are very close in their number, but slightly off with their remaining significant figures. This can be numerically represented as ([-159.3963,21.97066], [-158.0274,21.34273]) for instance.
 
-- ```sigma``` represents the overall standard deviation of the model, which is simply a measure of the disparity within whatever statisical model is presented. The graph is shown to have the distribution extremely skewed to the left in this specific iteration
+- ```sigma``` represents the overall standard deviation of the model, which is simply a measure of the disparity within whatever statisical model is presented. The graph is shown to have the distribution extremely skewed to the right in this specific iteration, indicating a positive alignment
 
-- ```theta``` represents the spatial heterogeneous effects displayed in the model. This scopes out the data and illustrates the disparities of various concentrations given in a specific area within the region. This is usually in reference to a landscape or a population.
+- ```theta``` represents the spatial heterogeneous effects displayed in the model. This scopes out the data and illustrates the disparities of various concentrations given in a specific area within the region. This is usually in reference to a landscape or a population. As seen here with the example, they each have unique and different shapes. This is accounting for the general discrepanices found in the given dataset's regions.
 
 - ```logit_rho```  is the proportional spatial variance of the model. This attributes to the spatial differences within the specific locations used within the model.
 
