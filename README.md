@@ -76,6 +76,9 @@ Within the Stan code itself, the parameters block is only for declarations. The 
 
 - ```logit_rho```  is the proportional spatial variance of the model. This attributes to the spatial differences within the specific locations used within the model. 
 
+**NOTE**: Each run will give a specific amount of saturation for the actual graph of the model __EACH TIME__. Use multiple runs for each dataset to be to discern the associated risks.
+
+
 
 ## Authors & Acknowledgement
  **UI & Design**
@@ -89,4 +92,47 @@ Within the Stan code itself, the parameters block is only for declarations. The 
 
 **BYM Model Functionality**
 - Jacob John Nona
+
+
+
+## Additional Sources & Research
+
+**Implmenting BYM in Stan**
+- http://www.stat.columbia.edu/~gelman/research/published/bym_article_SSTEproof.pdf
+
+**Stan Documentation**
+- https://mc-stan.org/users/interfaces/stan
+
+**Fitting CAR & SAR Models**
+- http://www2.stat.duke.edu/~cr173/Sta444_Sp17/slides/Lec19.pdf
+
+
+**Reference for mathematical terms and concepts(Scalar, Vectors, Tensors, etc)**
+- https://zeus.plmsc.psu.edu/~manias/MatSE447/03_Tensors.pdf
+
+**Reference for Markov Chains** 
+- https://jeremykun.com/2015/04/06/markov-chain-monte-carlo-without-all-the-bullshit/
+- http://www.math.chalmers.se/Stat/Grundutb/CTH/mve220/1617/redingprojects16-17/IntroMarkovChainsandApplications.pdf
+
+
+**Video Reference for High Level Overview of Bayesian Hierarchical Models**
+- https://youtube.com/watch?v=SMWleVKO9ZM
+
+**PyStan**
+- https://towardsdatascience.com/an-introduction-to-bayesian-inference-in-pystan-c27078e58d53
+- https://pystan.readthedocs.io/en/latest/
+- https://people.duke.edu/~ccc14/sta-663/PyStan.html~Deprecated
+- https://arviz-devs.github.io/arviz/notebooks/Introduction.html
+- https://users.obs.carnegiescience.edu/cburns/ipynbs/PyStan.html
+
+**Reference for USA represented as a Graph in Discrete Mathematics**
+- https://mathworld.wolfram.com/ContiguousUSAGraph.html
+
+**Syntax Cheat Sheet for Stan**
+- http://www.sumsar.net/files/posts/2017-bayesian-tutorial-exercises/stan_cheat_sheet2.12.pdf
+
+**R Implementation for BYM**
+- http://www.r-inla.org/examples/volume-1/code-for-bym-example
+- https://cran.r-project.org/web/packages/spam/vignettes/jss15.pdf
+
 
