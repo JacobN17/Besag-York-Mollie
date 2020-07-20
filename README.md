@@ -51,6 +51,8 @@ A set of coordinates will then be displayed, giving the results of the model gen
 <img src= "docs/Screen%20Shot%202020-07-16%20at%201.10.16%20AM.png" width= "500">
 
 
+
+
 ## Authors & Acknowledgement
  **UI & Design**
  - Aaron Yanes
