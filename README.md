@@ -56,11 +56,13 @@ The results of the iterations will be displayed. Here is an example of how the r
 
 
 Now, these results represent different aspects of the Besag-York-Mollie Model . The model parameters that were displayed here are 
-- beta0
-- betas
-- sigma
-- theta
-- logit_rho
+```
+beta0
+betas
+sigma
+theta
+logit_rho
+```
 
 Within the Stan code itself, the parameters block is only for declarations. The actual constraints of these parameters are defined within the model block. 
 
@@ -72,7 +74,7 @@ Within the Stan code itself, the parameters block is only for declarations. The 
 
 - ```theta``` represents the spatial heterogeneous effects displayed in the model. This scopes out the data and illustrates the disparities of various concentrations given in a specific area within the region. This is usually in reference to a landscape or a population. As seen here with the example, they each have unique and different shapes. This is accounting for the general discrepanices found in the given dataset's regions.
 
-- ```logit_rho```  is the proportional spatial variance of the model. This attributes to the spatial differences within the specific locations used within the model.
+- ```logit_rho```  is the proportional spatial variance of the model. This attributes to the spatial differences within the specific locations used within the model. 
 
 
 ## Authors & Acknowledgement
