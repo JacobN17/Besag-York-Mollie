@@ -50,6 +50,10 @@ After opening the application, click the upload button and proceed with uploadin
 A set of coordinates will then be displayed, giving the results of the model generation such as the following
 <img src= "docs/Screen%20Shot%202020-07-16%20at%201.10.16%20AM.png" width= "500">
 
+Now the results of the iterations will be displayed. Here is an example of how the results would look with the variables .
+
+<img src ="docs/Screen%20Shot%202020-07-19%20at%206.16.47%20PM.png">
+
 
 
 
