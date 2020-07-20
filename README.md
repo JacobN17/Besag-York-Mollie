@@ -50,11 +50,29 @@ After opening the application, click the upload button and proceed with uploadin
 A set of coordinates will then be displayed, giving the results of the model generation such as the following
 <img src= "docs/Screen%20Shot%202020-07-16%20at%201.10.16%20AM.png" width= "500">
 
-Now the results of the iterations will be displayed. Here is an example of how the results would look with the variables .
+The results of the iterations will be displayed. Here is an example of how the results would look with the variables .
 
 <img src ="docs/Screen%20Shot%202020-07-19%20at%206.16.47%20PM.png">
 
 
+Now, these results represent different aspects of Bayesian statistics calculated. The model parameters that were displayed here are 
+- beta0
+- betas
+- sigma
+- theta
+- logit_rho
+
+Within the Stan code itself, the parameters block is only for declarations. The actual constraints of these parameters are defined within the model block. 
+
+- Beginning with ```beta0```, this is the initial intercept of the model itself. 
+
+- The ```betas``` represent the various covariates associated with the model. An example of those could be introduced with the coordinate pairs of differing locations within the datasets folder, which contains multiple .csv files. 
+
+- ```sigma``` represents the overall standard deviation of the model, which is simply a measure of the disparity within whatever statisical model is presented.
+
+- ```theta``` represents the spatial heterogeneous effects displayed in the model. This scopes out the data and illustrates the disparities of various concentrations given in a specific area within the region. This is usually in reference to a landscape or a population.
+
+- ```logit_rho```  is the proportional spatial variance of the model. This attributes to the spatial differences within the specific locations used within the model.
 
 
 ## Authors & Acknowledgement
