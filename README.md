@@ -131,7 +131,6 @@ Within the Stan code itself, the parameters block is only for declarations. The 
 
 
 **Reference for Markov Chains** 
-- https://jeremykun.com/2015/04/06/markov-chain-monte-carlo-without-all-the-bullshit/
 - http://www.math.chalmers.se/Stat/Grundutb/CTH/mve220/1617/redingprojects16-17/IntroMarkovChainsandApplications.pdf
 
 
