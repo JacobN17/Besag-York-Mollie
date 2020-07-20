@@ -52,7 +52,7 @@ A set of coordinates will then be displayed, giving the results of the model gen
 
 The results of the iterations will be displayed. Here is an example of how the results would look with the variables .
 
-<img src ="docs/Screen%20Shot%202020-07-19%20at%206.16.47%20PM.png">
+<img src ="docs/Screen%20Shot%202020-07-19%20at%2010.46.40%20PM.png">
 
 
 Now, these results represent different aspects of Bayesian statistics calculated. The model parameters that were displayed here are 
@@ -66,9 +66,9 @@ Within the Stan code itself, the parameters block is only for declarations. The 
 
 - Beginning with ```beta0```, this is the initial intercept of the model itself. 
 
-- The ```betas``` represent the various covariates associated with the model. Within this example, the covariates that were used were coordinate pairs of latitude and longitude so the betas slightly differ since there are multiple coordinate pairs that are very close in their number, but slightly off with their remaining significant figures. This was numerically represented as ([-159.3963,21.97066], [-158.0274,21.34273])
+- The ```betas``` represent the various covariates associated with the model. Within this example, the covariates that were used were coordinate pairs of latitude and longitude, which means there's only two entries. Upon closer inspection, it can be seen that the betas slightly differ since there are multiple coordinate pairs that are very close in their number, but slightly off with their remaining significant figures. This can be numerically represented as ([-159.3963,21.97066], [-158.0274,21.34273]) for instance.
 
-- ```sigma``` represents the overall standard deviation of the model, which is simply a measure of the disparity within whatever statisical model is presented.
+- ```sigma``` represents the overall standard deviation of the model, which is simply a measure of the disparity within whatever statisical model is presented. The graph is shown to have the distribution extremely skewed to the left in this specific iteration
 
 - ```theta``` represents the spatial heterogeneous effects displayed in the model. This scopes out the data and illustrates the disparities of various concentrations given in a specific area within the region. This is usually in reference to a landscape or a population.
 
