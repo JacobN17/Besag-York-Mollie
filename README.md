@@ -66,7 +66,7 @@ Within the Stan code itself, the parameters block is only for declarations. The 
 
 - Beginning with ```beta0```, this is the initial intercept of the model itself. 
 
-- The ```betas``` represent the various covariates associated with the model. An example of those could be introduced with the coordinate pairs of differing locations within the datasets folder, which contains multiple .csv files. 
+- The ```betas``` represent the various covariates associated with the model. Within this example, the covariates that were used were coordinate pairs of latitude and longitude so the betas slightly differ since there are multiple coordinate pairs that are very close in their number, but slightly off with their remaining significant figures. This was numerically represented as ([-159.3963,21.97066], [-158.0274,21.34273])
 
 - ```sigma``` represents the overall standard deviation of the model, which is simply a measure of the disparity within whatever statisical model is presented.
 
