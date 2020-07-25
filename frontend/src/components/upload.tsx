@@ -9,6 +9,7 @@ import Papa, {ParseResult} from 'papaparse';
 import $ from 'jquery';
 // @ts-ignore
 import TableToExcel from '@linways/table-to-excel';
+// @ts-ignore
 import * as XLSX from 'xlsx';
 
 
@@ -39,7 +40,6 @@ export const Upload = () => {
                 })
                     .then(response => {
                         if (response.data != null) {
-                            alert("SUCCESS")
                         }
                     });
             }
@@ -80,7 +80,7 @@ export const Upload = () => {
         $("output").html(
             '<table class="table" id="csv-table"><thead>' +
             header + "</thead><tbody>" +
-            tbody +  "</tbody></table>"
+            tbody + "</tbody></table>"
         );
     }
 
@@ -94,7 +94,7 @@ export const Upload = () => {
     //==== Export CSV to Excel ====
     let exportBtn = document.getElementById("export-button") as HTMLButtonElement;
     if (exportBtn) {
-        exportBtn.addEventListener("click",  ev => {
+        exportBtn.addEventListener("click", ev => {
             let csvTable = document.getElementById("csv-table") as HTMLTableElement;
             TableToExcel.convert(csvTable);
         })

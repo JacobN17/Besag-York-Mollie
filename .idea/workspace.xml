@@ -2,10 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec8ad7a6-a1b3-40ca-95a5-58a18f08b2d6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.VSCodeCounter/details.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.VSCodeCounter/results.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.VSCodeCounter/results.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.VSCodeCounter/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/StanComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/example.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/jsonToCSV.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/css/converter.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/bym.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/bym.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/upload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/upload.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/example/project/BYMController/BymController.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/example/project/BYMController/BymController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/router.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/yarn-error.log" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn-error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,6 +210,7 @@
       <workItem from="1595134862674" duration="489000" />
       <workItem from="1595136759430" duration="238000" />
       <workItem from="1595255168061" duration="4231000" />
+      <workItem from="1595644722882" duration="2656000" />
     </task>
     <servers />
   </component>
