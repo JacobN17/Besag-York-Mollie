@@ -54,11 +54,13 @@ body {
 }
 
 .upload-button {
+    margin-left: 35px;
     font-size: 15px;
     background-color:  #384250;
-    padding: 0.6em 2em;
+    /* padding: 0.6em 2em; */
     cursor: pointer;
     position: relative;
+    text-align: center;
 }
 
 
@@ -70,4 +72,40 @@ body {
     font-size:15px;
     padding:16px 31px;
     text-decoration:none;
+}
+
+#drop-area {
+    border-style: dashed;
+    padding: 120px;
+}
+
+.file-area {
+    text-align: left;
+    border-style: dashed;
+    padding: 120px;
+
+    /* Hides choose file button */
+    width: 0;
+    height: 0;
+    z-index: -1;
+    position: absolute;
+    overflow: hidden;
+    opacity: 0;
+}
+
+
+input:focus {
+    outline: none;
+}
+
+
+.drag-icon {
+    padding-bottom: 5   0px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    text-align: center;
 }

@@ -1,13 +1,12 @@
 import * as React from 'react';
 import '../css/bym.css'
-import {Formik} from "formik";
-import axios  from 'axios'
+import { Formik } from "formik";
+import axios from 'axios'
 
 
 interface FormProps {
     action: string;
 }
-
 
 
 function SubmitForm() {

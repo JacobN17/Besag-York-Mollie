@@ -1,0 +1,30 @@
+.form-wrapper {
+    margin-top: 20em;
+    width: auto;
+    display: inline-block;
+}
+
+.download-button {
+    transition-duration: 0.4s;
+    background-color: #444c58;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.json-area {
+    display: inline-block;
+    width: 40em;
+    height: 40em;
+}
+
+.json-output {
+    display: inline-block;
+    width: 40em;
+    height: 40em;
+}
