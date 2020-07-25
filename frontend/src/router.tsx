@@ -16,7 +16,6 @@ export const AppRouter: React.FC = () => {
                     <Route path="/upload" component={Upload} />
                     <Route path="/bym" component={Bym} />
                     <Route path="/convert" component={Converter} />
-
                 </Switch>
             </div>
         </HashRouter>

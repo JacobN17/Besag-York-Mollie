@@ -28,7 +28,7 @@ nav {
 }
 
 
-.main-nav{;
+.main-nav {
     display: flex;
     justify-content: space-around;
     width: 30%;
@@ -80,4 +80,18 @@ ul.main-nav li:hover {
     height: 600px;
     justify-content: center;
     position: relative;
+}
+
+.form-wrapper {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+textarea {
+    display: inline-block;
+    width: 40em;
+    height: 14em;
 }
