@@ -8,3 +8,17 @@
     left:150px;
     top:350px;
 }
+
+.para-style1 {
+    font-family: "trebuchet MS", serif;
+    color: whitesmoke;
+    font-size: 12pt;
+    text-align: justify;
+    line-height: 28px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.hyper-link {
+    color: whitesmoke;
+}

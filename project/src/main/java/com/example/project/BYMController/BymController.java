@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class BymController {
 
-    //Establishes connection to MYSQLdatabase
+    //Establishes connection to MYSQL database
     private Connection mySQlconnect() {
         Connection c = null;
         Statement stmt = null;
@@ -35,13 +35,12 @@ public class BymController {
         return c;
     }
 
-    //Establishes connection to database
+    //Establishes connection to Postgres database
     private Connection connect() {
         Connection cO = null;
         Statement stmt = null;
         try {
             Class.forName("org.postgresql.Driver");
-//            Class.forName("com.sap.db.jdbc.Driver");
             cO = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/esri",
                             "postgres", "Iamrigo27");
@@ -52,7 +51,6 @@ public class BymController {
         return cO;
     }
 
-//    @RequestMapping(method = RequestMethod.POST, consumes = "multipart/form-data")
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public void GetForm(@RequestParam Map<String, Float> params) throws SQLException {
         System.out.println("d: " + params.get("dataw") + " " + "dv: " + params.get("datavalues") + " " +
