@@ -1,14 +1,27 @@
-body {
-    background: #2a313b;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+.home-nav {
+    text-align: center;
+    color: white;
+    z-index:100;
+    position:absolute;
+    font-size:24px;
+    font-weight:bold;
+    left:150px;
+    top:350px;
 }
 
-.input-container {
-    height: 200px;
-    display: flex;
-    /*position: absolute;*/
+.para-style1 {
+    font-family: "trebuchet MS", serif;
+    color: whitesmoke;
+    font-size: 12pt;
+    text-align: justify;
+    line-height: 28px;
+    padding: 10px;
+    margin-top: 10px;
 }
 
+.hyper-link {
+    color: whitesmoke;
+}
 .form-wrapper {
     display: table-column;
     margin: 0;
@@ -100,7 +113,7 @@ input:focus {
 
 
 .drag-icon {
-    padding-bottom: 5   0px;
+    padding-bottom: 50px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -109,3 +122,4 @@ input:focus {
 p {
     text-align: center;
 }
+
