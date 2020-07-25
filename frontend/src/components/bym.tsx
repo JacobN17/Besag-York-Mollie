@@ -1,30 +1,13 @@
 import * as React from 'react';
 import '../css/bym.css'
-import {Formik} from "formik";
-import axios  from 'axios'
+import { Formik } from "formik";
+import axios from 'axios'
 
 
 interface FormProps {
     action: string;
 }
 
-
-//
-// function SubmitForm() {
-//     const file = document.getElementById("upload") as HTMLInputElement;
-//     if (file.files != null) {
-//         const formData = new FormData();
-//         formData.append("upload", file.files[0]);
-//         axios.post("http://localhost:8080/", formData, {
-//             headers: {'Content-Type': 'multipart/form-data'}
-//         })
-//             .then(response => {
-//                 if (response.data != null) {
-//                     alert("SUCCESS")
-//                 }
-//             });
-//     }
-// }
 
 function SubmitForm() {
     const formData = new FormData();

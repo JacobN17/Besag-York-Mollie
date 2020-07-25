@@ -17,6 +17,8 @@
     "@uppy/react": "^1.7.0",
     "@uppy/tus": "^1.5.13",
     "axios": "^0.19.2",
+    "filepond": "^4.13.7",
+    "flat": "^5.0.0",
     "formik": "^2.1.4",
     "jquery": "^3.5.1",
     "papaparse": "^5.2.0",

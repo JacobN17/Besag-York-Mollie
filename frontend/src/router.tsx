@@ -2,7 +2,8 @@ import * as React from 'react';
 // @ts-ignore
 import { Route, HashRouter, Switch } from 'react-router-dom';
 import { App } from './App';
-import {Bym, Home, Upload} from './components';
+import {Bym, Home, Share, Upload, Converter} from './components';
+import './css/router.css'
 
 
 
@@ -16,6 +17,8 @@ export const AppRouter: React.FC = () => {
                     <Route path="/home" component={Home} />
                     <Route path="/upload" component={Upload} />
                     <Route path="/bym" component={Bym} />
+                    <Route path="/share" component={Share} />
+                    <Route path="/convert" component={Converter} />
                 </Switch>
             </div>
         </HashRouter>

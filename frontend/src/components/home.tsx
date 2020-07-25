@@ -1,11 +1,31 @@
 import * as React from 'react';
 import '../css/home.css';
+import axios  from 'axios'
+import { eventNames } from 'cluster';
+
+interface FormProps {
+    action: string
+}
+
+function UploadFile() {
+    const file = document.getElementById("fileupload") as HTMLInputElement;
+    if (file.files != null) {
+        const formData = new FormData();
+        formData.append("file", file.files[0]);
+        axios.post("http://localhost:8080/", formData, {
+            headers: {'Content-Type': 'multipart/form-data'}
+        })
+            .then(response => {
+                if (response.data != null) {
+                    alert("SUCCESS")
+                }
+            });
+    }
+}
 
 
 
-
-
-export const Home: React.FC = () => {
+export const Home: React.FC<FormProps> = ({action}) => {
     return (
         <div className='home-nav'>
             <p className='para-style1'>
