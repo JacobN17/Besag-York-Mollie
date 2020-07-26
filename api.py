@@ -10,7 +10,7 @@ html = './model/example2.html'
 @app.route('/', methods=['POST', 'GET'])
 def hello_world():
     # code lol
-    return render_template(html)
+    return 'Hello there'
 
 
 app.run()
