@@ -1,0 +1,22 @@
+"filename", "language", "TypeScript React", "CSS", "TypeScript", "JSON", "comment", "blank", "total"
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/App.tsx", "TypeScript React", 7, 0, 0, 0, 0, 3, 10
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/StanComponent.tsx", "TypeScript React", 65, 0, 0, 0, 0, 10, 75
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/bym.tsx", "TypeScript React", 79, 0, 0, 0, 0, 14, 93
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/example.json", "JSON", 0, 0, 0, 30, 0, 1, 31
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/header.tsx", "TypeScript React", 28, 0, 0, 0, 1, 6, 35
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/home.tsx", "TypeScript React", 37, 0, 0, 0, 0, 7, 44
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/index.ts", "TypeScript", 0, 0, 6, 0, 0, 1, 7
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/jsonToCSV.tsx", "TypeScript React", 51, 0, 0, 0, 6, 15, 72
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/share.tsx", "TypeScript React", 8, 0, 0, 0, 0, 1, 9
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/upload.tsx", "TypeScript React", 40, 0, 0, 0, 2, 11, 53
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/css/bym.css", "CSS", 0, 40, 0, 0, 0, 8, 48
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/css/converter.css", "CSS", 0, 11, 0, 0, 0, 2, 13
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/css/header.css", "CSS", 0, 35, 0, 0, 0, 6, 41
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/css/home.css", "CSS", 0, 88, 0, 0, 3, 21, 112
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/css/router.css", "CSS", 0, 9, 0, 0, 0, 1, 10
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/index.css", "CSS", 0, 12, 0, 0, 0, 2, 14
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/index.tsx", "TypeScript React", 7, 0, 0, 0, 3, 2, 12
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/react-app-env.d.ts", "TypeScript", 0, 0, 0, 0, 1, 1, 2
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/router.tsx", "TypeScript React", 22, 0, 0, 0, 1, 4, 27
+"/Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/setupTests.ts", "TypeScript", 0, 0, 1, 0, 4, 1, 6
+"Total", "-", 344, 195, 7, 30, 21, 117, 714

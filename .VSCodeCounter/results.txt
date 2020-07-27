@@ -1,0 +1,49 @@
+Date : 2020-06-13 13:23:56
+Directory : /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src
+Total : 20 files,  576 codes, 21 comments, 117 blanks, all 714 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| TypeScript React |         10 |        344 |         13 |         73 |        430 |
+| CSS              |          6 |        195 |          3 |         40 |        238 |
+| JSON             |          1 |         30 |          0 |          1 |         31 |
+| TypeScript       |          3 |          7 |          5 |          3 |         15 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                             | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                |         20 |        576 |         21 |        117 |        714 |
+| components                                                                                       |          9 |        344 |          9 |         66 |        419 |
+| css                                                                                              |          5 |        183 |          3 |         38 |        224 |
++--------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                                         | language         | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/App.tsx                      | TypeScript React |          7 |          0 |          3 |         10 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/StanComponent.tsx | TypeScript React |         65 |          0 |         10 |         75 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/bym.tsx           | TypeScript React |         79 |          0 |         14 |         93 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/example.json      | JSON             |         30 |          0 |          1 |         31 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/header.tsx        | TypeScript React |         28 |          1 |          6 |         35 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/home.tsx          | TypeScript React |         37 |          0 |          7 |         44 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/index.ts          | TypeScript       |          6 |          0 |          1 |          7 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/jsonToCSV.tsx     | TypeScript React |         51 |          6 |         15 |         72 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/share.tsx         | TypeScript React |          8 |          0 |          1 |          9 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/components/upload.tsx        | TypeScript React |         40 |          2 |         11 |         53 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/css/bym.css                  | CSS              |         40 |          0 |          8 |         48 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/css/converter.css            | CSS              |         11 |          0 |          2 |         13 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/css/header.css               | CSS              |         35 |          0 |          6 |         41 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/css/home.css                 | CSS              |         88 |          3 |         21 |        112 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/css/router.css               | CSS              |          9 |          0 |          1 |         10 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/index.css                    | CSS              |         12 |          0 |          2 |         14 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/index.tsx                    | TypeScript React |          7 |          3 |          2 |         12 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/react-app-env.d.ts           | TypeScript       |          0 |          1 |          1 |          2 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/router.tsx                   | TypeScript React |         22 |          1 |          4 |         27 |
+| /Users/aaronyanes/Desktop/Internship/Besag-York-Mollie/frontend/src/setupTests.ts                | TypeScript       |          1 |          4 |          1 |          6 |
+| Total                                                                                            |                  |        576 |         21 |        117 |        714 |
++--------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+

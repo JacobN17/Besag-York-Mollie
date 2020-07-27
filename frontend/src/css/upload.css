@@ -1,0 +1,85 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+.drag-icon {
+    position: absolute;
+    display: block;
+    top: 45%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.upload-btn {
+    position: absolute;
+    top: 68%;
+    left: 67%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+button {
+    width: 18%;
+    background-color: #384250;
+    color: #fff;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(13, 17, 46, 0.37);
+}
+
+table {
+    width:100%;
+    table-layout: fixed;
+}
+
+.tbl-header {
+    background-color: rgba(255,255,255,0.3);
+}
+
+.tbl-content{
+    height:300px;
+    overflow-x:auto;
+    margin-top: 0;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+th {
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+td {
+    padding: 15px;
+    text-align: left;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 12px;
+    color: #fff;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+
+section {
+    margin: 50px;
+}
+
+/* for scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
