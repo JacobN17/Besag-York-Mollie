@@ -22,17 +22,12 @@ import java.util.List;
 @CrossOrigin("http://localhost:3000")
 @Controller
 @RequestMapping("/api/csv")
-public class CSVController {
 
-//    final
+public class CSVController {
 
     @Autowired
     private CSVService fileService;
 
-
-//    public CSVController( CSVService fileService) {
-//        this.fileService = fileService;
-//    }
 
 
     //Establishes connection to MYSQLdatabase
@@ -68,28 +63,20 @@ public class CSVController {
     }
 
 
-    //    @RequestMapping(value = "/upload", headers=("content-type=multipart/*") ,method = RequestMethod.POST)
     @PostMapping("/upload")
     public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
         String message = "";
         System.out.println("received");
-//        if (CsvHelper.hasCSVFormat(file)) {
         try {
             System.out.println("trying");
             fileService.save(file);
-//
             message = "Uploaded the file successfully: " + file.getOriginalFilename();
-//                System.out.println("tried");
             return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
         } catch (Exception e) {
             System.err.println(e.getClass().getName()+": "+e.getMessage());
             message = "Could not upload the file: " + file.getOriginalFilename() + "!";
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
         }
-//        }
-//        message = "Please upload a csv file!";
-//        System.out.println("done");
-//        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message));
     }
 
     @RequestMapping(params = "POST")
@@ -118,25 +105,6 @@ public class CSVController {
                 .contentType(MediaType.parseMediaType("application/csv"))
                 .body(file);
     }
-
-
-//    //Formats results of queries
-//    private String getResults(ResultSet resultSet, String format) throws SQLException {
-//        StringBuilder results = new StringBuilder();
-//        ResultSetMetaData metaData = resultSet.getMetaData();
-//
-//        for (int i = 0; i < metaData.getColumnCount(); i++) {
-//            results.append(String.format(format,metaData.getColumnName(i+1)));
-//        }
-//
-//        while (resultSet.next()) {
-//            for (int i = 0; i < metaData.getColumnCount(); i++) {
-//                results.append(String.format(format,resultSet.getString(i+1)));
-//            }
-//        }
-//
-//        return results.toString();
-//    }
 
 
 }
