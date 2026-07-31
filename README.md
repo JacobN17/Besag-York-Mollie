@@ -1,4 +1,17 @@
-# Besag-York-Mollie
+# Statistical Risk-Assessment Visualization App
+
+# ⚠️ Legacy Status & Technical Debt Note
+
+This repository represents an internship project developed under past constraints. While it successfully served its academic purpose at the time, the codebase contains legacy patterns, unoptimized asset bloat, and deprecated dependencies that would be refactored or removed in a modern production environment.
+
+Key technical areas flagged for modernization include:
+* **Dependency Management:** Relies on older package versions that require auditing for security vulnerabilities.
+* **Asset Optimization:** Contains historical file bloat and unminified artifacts.
+* **Architecture & File Structure:** Monolithic utility structures that would benefit from modern separation of concerns. More explicit design patterns would help as well
+
+# ℹ️ Background Information
+
+## Besag-York-Mollie
 
 The Besag-York-Mollie (BYM) Model is a lognormal Poisson distribution developed for disease-risk mapping which includes both an Integrated Conditional Auto-Regression Model (ICAR) component for spatial smoothing and an ordinary random effects component for non-spatial heterogeneity. It is used to project statistical findings in order to analyze the degree of risk and discern details about the provided dataset. 
 
